@@ -12,6 +12,7 @@
 \setlength{\parindent}{0em}
 
 \subsection{Wahrscheinlichkeitsraum}
+
 \subsubsection{Definition}
 Ein Wahrscheinlichkeitsraum ist ein Tripel $(\Omega, \mathcal{A}, P)$ bestehend aus der Grundmenge $\Omega$, einer $\sigma$-Algebra $\mathcal{A} \subseteq  \mathcal{P}(\Omega)$ und einer Abbildung
 $P : \mathcal{A} \to [0,1]$
@@ -21,6 +22,7 @@ $P : \mathcal{A} \to [0,1]$
 \end{align*}
 Die Elemente von $\Omega$ werden elementare Ereignisse und die von $\mathcal{A}$ Ereignisse genannt. Mengen M mit $P(M) = 0$ werden Nullmengen genannt.
 Die Abbildung $P$ wird Wahrscheinlichkeitsmaß genannt.
+
 \subsubsection{$\sigma$-Algebra}
 Es sei $\Omega$ eine Menge und $\mathcal{A} \subset  \mathcal{P}(\Omega)$ ein System von Teilmengen (= Ereignissen). $\mathcal{A}$ heißt $\sigma$-Algebra (Sigma-Algebra) falls gilt:
 \begin{align*}
@@ -30,15 +32,25 @@ Es sei $\Omega$ eine Menge und $\mathcal{A} \subset  \mathcal{P}(\Omega)$ ein Sy
 \end{align*}
 $(A^c = \Omega \setminus A)$
 
+\subsubsection{Diskreter Wahrscheinlichkeitsraum}
+Ein diskreter Wahrscheinlichkeitsraum ist ein Wahrscheinlichkeitsraum $(\Omega, \mathcal{A}, P)$, bei dem die Grundmenge $\Omega$ abzählbar ist und die Menge der Ereignisse $\mathcal{A} := \mathcal{P}(\Omega)$ der Potenzmenge entspricht.
+
+\subsubsection{Laplace Experiment}
+Ein Laplace-Experiment ist ein Zufallsexperiment bei dem der Ereignisraum $\Omega$ endlich viele Elemente und ein Ereignis $A \subseteq \Omega$ die Wahrscheinlichkeit $P(A) = \frac{\#A}{\#\Omega}$ hat.
+
+
 \subsection{Zufallsvariablen}
-\subsubsection{Zufallsvariable}
+
+\subsubsection{Allgemeine Zufallsvariable}
 Sei $(\Omega, \mathcal{A}, P)$ ein Wahrscheinlichkeitsraum und $(\Omega', \mathcal{A}')$ ein Messraum. Eine Zufallsvariable ist eine Abbildung
 $$X : \Omega \to \Omega'$$ 
 so dass für alle Ereignisse $A' \in  \mathcal{A}'$
 $$ X^{-1} (A') \in \mathcal{A}$$
  ein Ereignis in $\mathcal{A}$ ist. Urbilder von Ereignissen sind also Ereignisse.
+
 \subsubsection{Messraum}
 Ein Messraum ist ein Paar $(\Omega, \mathcal{A})$ bestehend aus einer Menge $\Omega$ und einer Sigma-Algebra $\mathcal{A} \subset \mathcal{P}(\Omega)$.
+
 \subsubsection{Reelle Zufallsvariable}
 Unter einer reellen Zufallsvariable verstehen wir eine Zufallsvariable 
 \begin{align*}
@@ -47,12 +59,15 @@ Unter einer reellen Zufallsvariable verstehen wir eine Zufallsvariable
 \end{align*}
 wobei $(\Omega, \mathcal{A}, P)$ ein Wahrscheinlichkeitsraum ist und $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$ der $\mathbb{R}^n$ zusammen mit der Borel'schen Sigma-Algebra ist.
 
+
 \subsection{Erwartungswert}
+
 \subsubsection{Definition}
 Für eine reelle, integrierbare Zufallsvariable $X$ ist der Erwartungswert definiert durch
 $$ \mathbb{E} (X) := \int_{\Omega} X \; dP \; .$$
 Ist $(\Omega, \mathcal{A}, P)$ ein diskreter Wahrscheinlichkeitsraum und $X :\Omega \to \mathbb{R}$ eine eindimensionale reelle Zufallsvariable, so ist
 $$ \mathbb{E} (X) = \sum_{\omega \in \Omega}  X(\omega) \cdot P(\omega)$$
+
 \subsubsection{Eigenschaften}
 Sind $X,Y : \Omega \to \mathbb{R}^n$   reelle, integrierbare  Zufallsvariablen und $a,b \in \mathbb{R}$ konstant, so gilt:
 \begin{align*}
@@ -66,7 +81,9 @@ Sind $X,Y : \Omega \to \mathbb{R}^n$   reelle, integrierbare  Zufallsvariablen u
 Für eine reelle Zufallsvariable $X$ ist die Varianz definiert durch
 $$ \mathbb{V} (X) \; := \;  \mathbb{E}( (X - \mathbb{E}(X))^2) \;  = \; \mathbb{E}(X^2) -  \mathbb{E}(X)^2$$
 
+
 \subsection{Verteilungen}
+
 \subsubsection{Normalverteilung}
 Die Normalverteilung $N{(\mu,\sigma^2)}$ auf $\mathbb{R}$ ist definiert durch
 \begin{align*}
@@ -86,6 +103,7 @@ Für eine reelle Zufallsvariable $X$ heißt
 & F_X (x) := P (X \leq x) := P_X (( -\infty, x )) = P(X^{-1} (-\infty, x))
 \end{align*}
 Verteilungsfunktion von $X$.
+
 \subsubsection{Gleichverteilung}
 Die Gleichverteilung $U{(a,b)}$ auf einem Intervall $(a,b) \subset \mathbb{R}$ ist definiert durch
 \begin{align*}
@@ -100,11 +118,43 @@ Die Gleichverteilung $U{(a,b)}$ auf einem Intervall $(a,b) \subset \mathbb{R}$ i
     &= \frac{1}{12}(b - a)^2
 \end{align*}
 
-
-
 \subsubsection{Dichte}
 Sei $\Omega \subset \mathbb{R}^n$ und $(\Omega, \mathcal{A})$ ein Messraum, wobei alle $A \in \mathcal{A}$ Lebesgue-messbar sind.
  Eine Funktion $f: \Omega \to \mathbb{R}$ heißt Dichte, falls für ihr Lebesgue-Integral $\int_{\Omega} f d \mu = 1$ gilt.
+
+
+\subsection{Schwaches Gesetz der großen Zahlen}
+
+\subsubsection{Definition}
+Seien $X_i : \Omega \to \mathbb{R}$ unabhängige, reelle Zufallsvariablen mit $\mathbb{E}(X_i) = \mu < \infty$ und $\mathbb{V}(X_i) = \sigma < \infty$, dann gilt
+\begin{align*}
+P \bigl  ( \bigl | \frac{1}{n} \sum_{i=1}^{n} X_i - \mu \bigr |  \geq \epsilon \bigr) \leq \frac{\sigma}{ n \cdot \epsilon^2} \; \; \underset{n \to \infty}{\longrightarrow} 0
+\end{align*}
+(stochastische Konvergenz). 
+
+\subsubsection{Bedeutung}
+Das schwache Gesetz der großen Zahlen besagt, dass das arithmetische Mittel einer großen Stichprobe einer Zufallsvariable mit einer beliebig kleinen Wahrscheinlichkeit dem Erwartungswert der Zufallsvariable entspricht.\\
+
+\textbf{Gegenteilige (äquivalente) Formulierung:}\\
+Die Wahrscheinlichkeit, dass die Differenz zwischen beobachteter relativer Häufigkeit und theoretischer Wahrscheinlichkeit kleiner ist als eine beliebig kleine positive Zahl $\epsilon$, ist für eine unendlich große Stichprobe praktisch $1$.
+
+
+\subsection{Zentraler Grenzwertsatz}
+
+\subsubsection{Definition}
+Sei $(\Omega, \mathcal{A}, P)$ ein Wahrscheinlichkeitsraum und $X_n :  \Omega \to \mathbb{R}$  eine folge stochastisch unabhängiger, identisch verteilter, reeller Zufallsvariablen mit $\mathbb{E}(X_n) = \mu$ und $\mathbb{V}(X_n)= \sigma^2$. Dann gilt für das arithmetische Mittel $S_n:= \frac{1}{n} \sum_{i=1}^n X_i$
+\begin{align*}
+P_{ \frac{\sqrt{n}}{\sigma} (S_n-\mu)} \to P_{N(0,1)}
+\end{align*}
+wobei $ P_{N(0,1)}$ das Wahrscheinlichkeits-Maß mit der Dichte $ \frac {1}{ \sqrt{2\pi}}e^{- \frac {1}{2} x^2}$ ist.
+\subsubsection{Bedeutung}
+Die Summe von $n$ identisch verteilten, stochastisch unabhängigen Zufallsvariablen ist näherungsweise normalverteilt.\\
+
+\textbf{Beispiel Würfel:}\\
+Die Augensumme von $n \to \infty$ Würfeln ist normalverteilt, wenn alle Würfel von einander stochastisch unabhängig und gleichverteilt sind.
+
+
+
 
 
 \end{document}
