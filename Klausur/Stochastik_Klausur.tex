@@ -67,7 +67,7 @@ Zwei Ereignisse $A,B$ heißen stochastisch unabhängig, falls
 P(A \cap B) = P(A) \cdot P(B)
 \end{align*}
 gilt.  Gleichbedeutend damit ist  $P(A | B) = P(A)$ und $P(B  | A) = P(B)$.
-
+\newpage
 \subsubsection{Naiver Bayes'scher Spam Filter}
 Gegeben ist eine E-Mail $E$.  Wir möchten anhand des Vorkommens bestimmter Wörter $A_1, \ldots A_n$ in der Mail entscheiden, ob es sich um eine erwünschte Mail $H$ oder eine unerwünschte Mail $S$ handelt.\\\\
 Aus einer Datenbank kann man das Vorkommen dieser Wörter in allen E-Mails zählen und damit empirisch die Wahrscheinlichkeiten $P(A_i | S)$ und $P(A_i | H) $ des Vorkommens dieser Wörter in Spam und Ham Mails ermitteln.  Wir gehen davon aus, dass es sich bei der Mail  prinzipiell mit  Wahrscheinlichkeit $P(E= S) = P(E= H)= \frac{1}{2}$  um eine erwünschte  Mail $H$ oder eine unerwünschte Mail $S$  handeln kann. \\\\
@@ -110,7 +110,7 @@ Unter einer reellen Zufallsvariable verstehen wir eine Zufallsvariable
 \end{align*}
 wobei $(\Omega, \mathcal{A}, P)$ ein Wahrscheinlichkeitsraum ist und $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$ der $\mathbb{R}^n$ zusammen mit der Borel'schen Sigma-Algebra ist.
 
-
+\pagebreak
 \subsection{Erwartungswert}
 
 \subsubsection{Definition}
@@ -132,7 +132,7 @@ Sind $X,Y : \Omega \to \mathbb{R}^n$   reelle, integrierbare  Zufallsvariablen u
 Für eine reelle Zufallsvariable $X$ ist die Varianz definiert durch
 $$ \mathbb{V} (X) \; := \;  \mathbb{E}( (X - \mathbb{E}(X))^2) \;  = \; \mathbb{E}(X^2) -  \mathbb{E}(X)^2$$
 
-
+\pagebreak
 \subsection{Verteilungen}
 
 \subsubsection{Normalverteilung}
@@ -204,7 +204,7 @@ Die Summe von $n$ identisch verteilten, stochastisch unabhängigen Zufallsvariab
 \textbf{Beispiel Würfel:}\\
 Die Augensumme von $n \to \infty$ Würfeln ist normalverteilt, wenn alle Würfel von einander stochastisch unabhängig und gleichverteilt sind.
 
-
+\pagebreak
 \subsection{Schätzer}
 
 \subsubsection{Ausgangslage}
@@ -226,6 +226,55 @@ Der Erwartungswert dieses Schätzers ist $$ \mathbb{E}(T_n^{E} ) = \rho$$
 \subsubsection{Bedeutung}
 Beide Schätzer sind asymptotisch exakt und konvergieren gegen $\rho$ (= Erwartungstreu). Der Erwartungswert-Schätzer ist aber durchschnittlich (Erwartungswert) früher exakt $\rho$ als der Maximalwert-Schätzer mit seinem Bias $\frac{n}{n+1}$. Die Varianz von beiden Schätzern geht für $n \to \infty$ gegen 0, beide werden also immer aussagekräftiger mit zunehmender Stichprobenanzahl.\\
 Kein Schätzer ist allgemein perfekt, den aktuell passenden Schätzer kann man nach Kriterien wie Konvergenzgeschwindigkeit zum gesuchten Wert, Konvergenzgeschwindigkeit des Erwartungswertes und der Konvergenzgeschwindigkeit der Varianz auswählen.
+
+\pagebreak
+\subsection{Informationstheorie / Entropie}
+
+\subsubsection{Ausgangslage}
+Gegeben eine reelle, diskrete Zufallsvariable $X :\mathcal{X} \to \mathbb{R}$ mit endlichem Grundraum $\#\mathcal{X}  \geq 2$ und Verteilung $Q$.\\
+Mit $L : \mathcal{X} \to \mathbb{N}$ bezeichnen wir die Anzahl an Fragen $L(x)$, die benötigt werden, um bei einer gewählten Strategie den Wert von $X = x$ zu erraten.\\
+Wir suchen eine Strategie, so dass die mittlere Anzahl an Fragen  (Erwartungswert) $\mathbb{E}(L(X)) := \sum_{x \in \mathcal{X}} L(x) Q(x)$  möglichst klein ist.
+
+\subsubsection{Wörter und Wortmenge}
+Gegeben sei eine endliche Menge $\mathcal{A}$ mit $\# A \geq 2$, genannt Alphabet.
+Ein Wort der Länge $k$ ist gegeben durch ein Tupel $w = b_1b_2 \cdots b_k$ mit Buchstaben $b_i \in \mathcal {A}$.\\
+Die Menge aller Wörter bezeichnen wir mit 
+$$\mathcal{W} (\mathcal{A}) := \{  b_1 \cdots b_k \; | \; i \in \mathbb{N}, \; b_i \in \mathcal{A} \} $$
+ Mit $l(w):= k$ für $w=b_1 \cdots b_k  $ bezeichnen wir die Länge des Wortes.
+ 
+\subsubsection{Kode und Präfix}
+Ein $\mathcal{A}$-Kode für die Menge $\mathcal{X}$ mit Alphabet $\mathcal{A}$ ist eine injektive Abbildung (1-zu-1)
+$$ \kappa : \mathcal{X} \to \mathcal{W} (\mathcal{A})$$
+die jedem Wort $x \in \mathcal{X}$ eindeutig ein Kodewort $\kappa(x)$ zuordnet.\\\\
+Ein Wort $v = a_1 \cdots a_j$ heißt Präfix des Wortes $w = b_1 \cdots b_k$, wenn $j \leq k$ und $v = b_1 \cdots b_j$ ist. Das Wort $w$ heisst Fortsetzung von $v$. Ein Kode $$ \kappa : \mathcal{X} \to \mathcal{W} (\mathcal{A})$$
+ heißt präfixfrei, wenn kein Kodewort $\kappa(x)$ Präfix eines anderen Kodewortes $\kappa(y)$ ist. 
+
+\subsubsection{Zusammenhang mit der Fragestrategie}
+Jede Fragestrategie liefert einen präfixfreien Kode mit Alphabet $\mathcal{A := \{  \text{j} ,\text{n} \}}$.\\
+Das Maß für Informationsgehalt (= Entropie) der Quelle $X$ ist das Minimum von $\mathbb{E}(l(\kappa (X)))$ über alle präfixfreien Kodes $\kappa$ für $X$.
+
+\subsubsection{Kraftsche Ungleichung}
+Sei $\kappa$ ein präfixfreier $\mathcal{A}$-Kode für $\mathcal{X}$ mit $\# \mathcal{A} = d$. Dann ist
+$$ \sum_{x \in \mathcal{X} }  d^{-l( \kappa(x))} \leq 1$$\\\\
+Für $x \in \mathcal{X}$ sei $L : \mathcal{X} \to \mathbb{N}$ eine Abbildung, so dass $ \sum_{x \in \mathcal{X} }  d^{-L(x)} \leq 1$ gilt. Dann gibt es einen präfixfreien  $\mathcal{A}$-Kode für $\mathcal{X}$ mit 
+$$ l(\kappa(x)) = L(x) \; .$$
+
+\subsubsection{Entropie}
+Die Entropie $H_d(X)$ der Ordnung $d$ der Zufallsvariable $X$ ist definiert als das Minimum von $\sum_{x \in \mathcal{X} }  L(x) Q(x)$ über alle Abbildungen $L: \mathcal{X} \to \mathbb{N}$ mit \mbox{$\sum_{x \in \mathcal{X} }  d^{-L(x)} \leq 1$.}\\\\
+Die Entropie der Zufallsvariable $X$ ist definiert durch 
+$$ H(X) := -\sum_{x \in \mathcal{X} }   Q(x) \log(Q(x))$$\\
+Es gilt
+$$ \frac{H(X)}{\log(d)} \leq H_d(X) \leq \frac{H(X)}{\log(d)} +1 \; .$$\\\\
+Berechne für $x \in \mathcal{X}$ die Funktion $L(x) := \lceil -\log_d(Q(x)) \rceil$. Damit existiert ein präfixfreier $\mathcal{A}$-Kode
+$\kappa$ mit $l(\kappa(x)) = L(x)$. Dann gilt $\mathbb{E}(l(\kappa(X))) < H_d(X) +1$.
+
+\subsubsection{Bedeutung}
+Eine Fragestrategie ist äquivalent zu einem präfixfreien Kode. Die durchschnittliche Anzahl an notwendigen Fragen zur Bestimmung des Ergebnisses einer Zufallsvariable $X$ ist somit ebenfalls äquivalent zur durchschnittlichen Wortlänge des zugehörigen präfixfreien Kodes.\\
+Die Entropie ist ein Maß für den Informationsgehalt einer Zufallsvariable $X$. Je häufiger ein Ergebnis auftritt, desto geringer ist sein Informationswert.\\
+Die Entropie beschreibt die durchschnittliche Wortlänge eines optimalen, präfixfreien Kodes für $X$. Dabei ist ein Kode genau dann optimal, wenn die durchschnittliche Wortlänge eines Kodewortes, im Vergleich mit allen möglichen präfixfreien Kodes für $X$, minimal ist.\\
+Die minimale durchschnittliche Kodewortlänge (Entropie) hängt auch von den zur Verfügung stehenden Anzahl an Buchstaben $d$ ab (mehr Antwortmöglichkeiten $\rightarrow$ weniger Fragen notwendig).\\
+Das die minimale durchschnittliche Kodewortlänge tatsächlich der Entropie $H_d(X)$ entspricht, wird durch die kraftsche Ungleichung impliziert.\\
+Die Entropie $H_d(X)$ kann zwar nicht direkt berechnet, aber durch die Entropie-Ungleichung unter Verwendung von $H(X)$ zwischen zwei natürliche Zahlen eingeschätzt werden.
 
 
 \end{document}
