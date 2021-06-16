@@ -50,7 +50,7 @@ die bedingte Wahrscheinlichkeit (von $A$ unter $B$).
 \subsection{Spamfilter / Satz von Bayes}
 
 \subsubsection{Satz der totalen Wahrscheinlichkeit}
-Für eine Zerlegung  $\Omega = \bigcup_{j=1}^{n} B_j, \text{ mit } B_i \cap B_k = \emptyset \text{ für } i \neq k $
+Für eine Zerlegung  $\Omega = \bigcup_{j=1}^{n} B_j, \text{ mit } B_i \cap B_k = \emptyset \text{ für } i \neq k $, gilt
 \begin{align*}
 & P(A ) = \sum_{j=1}^{n}  P(A \; | \;  B_j) \cdot P(B_j)
 \end{align*}
@@ -69,9 +69,8 @@ P(A \cap B) = P(A) \cdot P(B)
 gilt.  Gleichbedeutend damit ist  $P(A | B) = P(A)$ und $P(B  | A) = P(B)$.
 
 \subsubsection{Naiver Bayes'scher Spam Filter}
-Gegeben ist eine E-Mail $E$.  Wir möchten anhand des Vorkommens bestimmter Wörter $A_1, \ldots A_n$ in der Mail entscheiden, ob es sich um eine erwünschte Mail $H$ oder eine unerwünschte Mail $S$ (Ham or Spam) handelt. 
-(Typische Wörter wären zum Beispiel "reich",  "casino", "Vergrösserung" ...)\\\\
-Aus einer Datenbank kann man das Vorkommen dieser Wörter in Spam und Ham Mails zählen und damit empirisch die Wahrscheinlichkeiten $P(A_i | S)$ und $P(A_i | H) $ des Vorkommens dieser Wörter in Spam und Ham Mails ermitteln.  Wir gehen davon aus, dass es sich bei der Mail  prinzipiell mit  Wahrscheinlichkeit $P(E= S) = P(E= H)= \frac{1}{2}$  um eine erwünschte  Mail $H$ oder eine unerwünschte Mail $S$  handeln kann. \\\\
+Gegeben ist eine E-Mail $E$.  Wir möchten anhand des Vorkommens bestimmter Wörter $A_1, \ldots A_n$ in der Mail entscheiden, ob es sich um eine erwünschte Mail $H$ oder eine unerwünschte Mail $S$ handelt.\\\\
+Aus einer Datenbank kann man das Vorkommen dieser Wörter in allen E-Mails zählen und damit empirisch die Wahrscheinlichkeiten $P(A_i | S)$ und $P(A_i | H) $ des Vorkommens dieser Wörter in Spam und Ham Mails ermitteln.  Wir gehen davon aus, dass es sich bei der Mail  prinzipiell mit  Wahrscheinlichkeit $P(E= S) = P(E= H)= \frac{1}{2}$  um eine erwünschte  Mail $H$ oder eine unerwünschte Mail $S$  handeln kann. \\\\
  Wir machen zudem die (naive) Annahme, dass das Vorkommen der Wörter  stochastisch unabhängig ist, also 
 \begin{align*}
 P(A_1 \cap \cdots \cap A_n | S) = P(A_1 | S) \cdot P(A_2 | S) \cdots P(A_n | S) \\
@@ -80,9 +79,10 @@ P(A_1 \cap \cdots \cap A_n | H) = P(A_1 | H) \cdot P(A_2 | H) \cdots P(A_n | H)
 gilt.\\\\
 Mit der Formel von Bayes und der totalen Wahrscheinlichkeit  können wir somit berechnen
 \begin{align*}
-& P(E=S |  A_1 \cap \cdots \cap A_n) = \frac{P(A_1 \cap \cdots \cap A_n | S) \cdot P(S)}{P(A_1 \cap \cdots \cap A_n)} \\
-&=  \frac{P(A_1 | S) \cdots P(A_n | S) \cdot P(S)}{P(A_1 \cap \cdots \cap A_n | H) + P(A_1 \cap \cdots \cap A_n | S)} \\
-&=  \frac{P(A_1 | S) \cdots P(A_n | S) \cdot P(S)}{P(A_1 | H) \cdots P(A_n | H)  + P(A_1 | S) \cdots P(A_n | S) } \\
+& P(E=S |  A_1 \cap \cdots \cap A_n) \quad \texttt{("E =" wird im folgenden weggelassen)}\\[5pt]
+&= \frac{P(A_1 \cap \cdots \cap A_n | S) \cdot P(S)}{P(A_1 \cap \cdots \cap A_n)} \quad \texttt{(-> Satz von Bayes)}\\[5pt]
+&=  \frac{P(A_1 | S) \cdots P(A_n | S) \cdot P(S)}{P(A_1 \cap \cdots \cap A_n | H) + P(A_1 \cap \cdots \cap A_n | S)} \quad \frac{\texttt{(-> Stoch. Unabhängigkeit)}}{\texttt{(-> Satz der totalen Wahrscheinlichkeit)}} \\[5pt]
+&=  \frac{P(A_1 | S) \cdots P(A_n | S) \cdot P(S)}{P(A_1 | H) \cdots P(A_n | H)  + P(A_1 | S) \cdots P(A_n | S) } \quad \frac{•}{\texttt{(-> Stoch. Unabhängigkeit)}} \\
 \end{align*}
 Bemerkung: $P(E=H |  A_1 \cap \cdots \cap A_n) = 1- P(E=S |  A_1 \cap \cdots \cap A_n) $
 
@@ -202,7 +202,20 @@ Die Summe von $n$ identisch verteilten, stochastisch unabhängigen Zufallsvariab
 Die Augensumme von $n \to \infty$ Würfeln ist normalverteilt, wenn alle Würfel von einander stochastisch unabhängig und gleichverteilt sind.
 
 
+\subsection{Schätzer}
 
+\subsubsection{Ausgangslage}
+Angenommen man findet einen Apparat, der zufällig Zahlen in einem Intervall $[0, \rho]$ ausgibt. Anhand von Beobachtungen der Zahlen möchte man $\rho$ schätzen. Wir machen die Annahme, dass alle Zahlen in dem Intervall gleich wahrscheinlich auftreten und  nehmen $n$ Stichproben $X_1, \cdots, X_n$. Einen Schätzer für $\rho$ bezeichnen wir mit $T_n$.
+
+\subsubsection{Maximalwert-Schätzer}
+Eine einfache und einleuchtende Idee ist es, $\rho$ durch die größte beobachtete Zahl zu schätzen, also
+$T_n^{max} := \max(X_1, \cdots, X_n)$.\\
+Dieser Schätzer konvergiert für $n \to \infty$ gegen $\rho$, also $P(| T_n^{max} - \rho | \geq \epsilon) \underset{n \to \infty}{\longrightarrow} 0$.
+
+\subsubsection{Erwartungswert-Schätzer}
+Da das Auftreten der Zahlen gleich wahrscheinlich ist, ist der Erwartungswert des Zufallsexperiments $\rho /2$. Unter Berufung auf das  schwache Gesetz der großen Zahlen erscheint der Schätzer
+$T_n^{E} :=  2 \cdot \biggl( \frac{1}{n} \sum_{i=1}^n X_i \biggr)$ sehr plausibel.\\
+Dieser Schätzer konvergiert für $n \to \infty$ gegen $\rho$, also $P(| T_n^{E} - \rho | \geq \epsilon) \underset{n \to \infty}{\longrightarrow} 0$.
 
 
 \end{document}
