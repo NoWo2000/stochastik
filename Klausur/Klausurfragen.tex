@@ -77,14 +77,17 @@ P(A_1 \cap \cdots \cap A_n | S) = P(A_1 | S) \cdot P(A_2 | S) \cdots P(A_n | S) 
 P(A_1 \cap \cdots \cap A_n | H) = P(A_1 | H) \cdot P(A_2 | H) \cdots P(A_n | H)
 \end{align*}
 gilt.\\\\
-Mit der Formel von Bayes und der totalen Wahrscheinlichkeit  können wir somit berechnen
+Mit der Formel von Bayes und der totalen Wahrscheinlichkeit  können wir somit berechnen:
 \begin{align*}
-& P(E=S |  A_1 \cap \cdots \cap A_n) \quad \texttt{("E =" wird im folgenden weggelassen)}\\[5pt]
+& P(E=S |  A_1 \cap \cdots \cap A_n) \quad \texttt{(-> "E =" wird im folgenden weggelassen)}\\[5pt]
 &= \frac{P(A_1 \cap \cdots \cap A_n | S) \cdot P(S)}{P(A_1 \cap \cdots \cap A_n)} \quad \texttt{(-> Satz von Bayes)}\\[5pt]
-&=  \frac{P(A_1 | S) \cdots P(A_n | S) \cdot P(S)}{P(A_1 \cap \cdots \cap A_n | H) + P(A_1 \cap \cdots \cap A_n | S)} \quad \frac{\texttt{(-> Stoch. Unabhängigkeit)}}{\texttt{(-> Satz der totalen Wahrscheinlichkeit)}} \\[5pt]
-&=  \frac{P(A_1 | S) \cdots P(A_n | S) \cdot P(S)}{P(A_1 | H) \cdots P(A_n | H)  + P(A_1 | S) \cdots P(A_n | S) } \quad \frac{•}{\texttt{(-> Stoch. Unabhängigkeit)}} \\
+&=  \frac{P(A_1 | S) \cdots P(A_n | S) \cdot P(S)}{P(A_1 \cap \cdots \cap A_n | H) \cdot P(H) + P(A_1 \cap \cdots \cap A_n | S) \cdot P(S)} \quad \frac{\texttt{(-> Stoch. Unabhängigkeit)}}{\texttt{(-> Satz der t. Wahrscheinlichkeit)}} \\[5pt]
+&=  \frac{P(A_1 | S) \cdots P(A_n | S)}{P(A_1 \cap \cdots \cap A_n | H) + P(A_1 \cap \cdots \cap A_n | S)} \quad \texttt{(-> kürzen da P(H) = P(S))} \\[5pt]
+&=  \frac{P(A_1 | S) \cdots P(A_n | S)}{P(A_1 | H) \cdots P(A_n | H)  + P(A_1 | S) \cdots P(A_n | S) } \quad \frac{•}{\texttt{(-> Stoch. Unabhängigkeit)}} \\
 \end{align*}
-Bemerkung: $P(E=H |  A_1 \cap \cdots \cap A_n) = 1- P(E=S |  A_1 \cap \cdots \cap A_n) $
+Bemerkung: $P(E=H |  A_1 \cap \cdots \cap A_n) = 1- P(E=S |  A_1 \cap \cdots \cap A_n) $\\\\
+\textbf{Schlussfolgerung:}\\
+Die Wahrscheinlichkeiten $P(A_i | S)$ und $P(A_i | H) $ sind durch Empirie (Datenbank) bekannt. Daher lässt sich so nun die Wahrscheinlichkeit berechnen, ob es sich bei einer E-Mail, welche die Wörter $A_i$ enthält, um eine Spam E-Mail handelt.
 
 
 \subsection{Zufallsvariablen}
@@ -136,7 +139,7 @@ $$ \mathbb{V} (X) \; := \;  \mathbb{E}( (X - \mathbb{E}(X))^2) \;  = \; \mathbb{
 Die Normalverteilung $N{(\mu,\sigma^2)}$ auf $\mathbb{R}$ ist definiert durch
 \begin{align*}
 & \text{Dichte: } f (x) : = \frac 1{\sigma \sqrt{2\pi}}e^{- \frac {1}{2} (\frac{x- \mu}{ \sigma})^2} \\
-&  \Rightarrow \text{Verteilung: } F(x) = N{(\mu,\sigma^2)}(-\infty , x) =  \int_{-\infty}^{x}  \frac 1{\sigma \sqrt{2\pi}}e^{- \frac {1}{2} (\frac{t- \mu}{ \sigma})^2}dt\\
+&  \text{Verteilung: } F(x) = N{(\mu,\sigma^2)}(-\infty , x) =  \int_{-\infty}^{x}  \frac 1{\sigma \sqrt{2\pi}}e^{- \frac {1}{2} (\frac{t- \mu}{ \sigma})^2}dt\\
 \end{align*}
 \textbf{Erwartungswert und Varianz bei $X \sim N(\mu, \sigma^2)$:}
 \begin{align*}
@@ -184,7 +187,7 @@ P \bigl  ( \bigl | \frac{1}{n} \sum_{i=1}^{n} X_i - \mu \bigr |  \geq \epsilon \
 Das schwache Gesetz der großen Zahlen besagt, dass das arithmetische Mittel einer großen Stichprobe einer Zufallsvariable mit einer beliebig kleinen Wahrscheinlichkeit dem Erwartungswert der Zufallsvariable entspricht.\\
 
 \textbf{Gegenteilige (äquivalente) Formulierung:}\\
-Die Wahrscheinlichkeit, dass die Differenz zwischen beobachteter relativer Häufigkeit und theoretischer Wahrscheinlichkeit kleiner ist als eine beliebig kleine positive Zahl $\epsilon$, ist für eine unendlich große Stichprobe praktisch $1$.
+Die Wahrscheinlichkeit, dass die Differenz zwischen beobachteter relativer Häufigkeit und theoretischer Wahrscheinlichkeit kleiner ist als eine beliebig kleine positive Zahl $\epsilon$, geht für eine unendlich große Stichprobe gegen 1.
 
 
 \subsection{Zentraler Grenzwertsatz}
@@ -210,12 +213,19 @@ Angenommen man findet einen Apparat, der zufällig Zahlen in einem Intervall $[0
 \subsubsection{Maximalwert-Schätzer}
 Eine einfache und einleuchtende Idee ist es, $\rho$ durch die größte beobachtete Zahl zu schätzen, also
 $T_n^{max} := \max(X_1, \cdots, X_n)$.\\
-Dieser Schätzer konvergiert für $n \to \infty$ gegen $\rho$, also $P(| T_n^{max} - \rho | \geq \epsilon) \underset{n \to \infty}{\longrightarrow} 0$.
+Dieser Schätzer konvergiert für $n \to \infty$ gegen $\rho$, also $$P(| T_n^{max} - \rho | \geq \epsilon) \underset{n \to \infty}{\longrightarrow} 0$$\\
+Der Erwartungswert dieses Schätzers ist $$ \mathbb{E}(T_n^{max} ) = \frac{n}{n+1} \rho    \underset{n \to \infty}{\longrightarrow} \rho$$
+
 
 \subsubsection{Erwartungswert-Schätzer}
 Da das Auftreten der Zahlen gleich wahrscheinlich ist, ist der Erwartungswert des Zufallsexperiments $\rho /2$. Unter Berufung auf das  schwache Gesetz der großen Zahlen erscheint der Schätzer
 $T_n^{E} :=  2 \cdot \biggl( \frac{1}{n} \sum_{i=1}^n X_i \biggr)$ sehr plausibel.\\
-Dieser Schätzer konvergiert für $n \to \infty$ gegen $\rho$, also $P(| T_n^{E} - \rho | \geq \epsilon) \underset{n \to \infty}{\longrightarrow} 0$.
+Dieser Schätzer konvergiert für $n \to \infty$ gegen $\rho$, also $$P(| T_n^{E} - \rho | \geq \epsilon) \underset{n \to \infty}{\longrightarrow} 0$$\\
+Der Erwartungswert dieses Schätzers ist $$ \mathbb{E}(T_n^{E} ) = \rho$$
+
+\subsubsection{Bedeutung}
+Beide Schätzer sind asymptotisch exakt und konvergieren gegen $\rho$ (= Erwartungstreu). Der Erwartungswert-Schätzer ist aber durchschnittlich (Erwartungswert) früher exakt $\rho$ als der Maximalwert-Schätzer mit seinem Bias $\frac{n}{n+1}$. Die Varianz von beiden Schätzern geht für $n \to \infty$ gegen 0, beide werden also immer aussagekräftiger mit zunehmender Stichprobenanzahl.\\
+Kein Schätzer ist allgemein perfekt, den aktuell passenden Schätzer kann man nach Kriterien wie Konvergenzgeschwindigkeit zum gesuchten Wert, Konvergenzgeschwindigkeit des Erwartungswertes und der Konvergenzgeschwindigkeit der Varianz auswählen.
 
 
 \end{document}
