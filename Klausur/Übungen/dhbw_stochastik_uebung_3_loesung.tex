@@ -1,0 +1,167 @@
+\documentclass[a4paper,12pt]{article}
+
+%\usepackage[latin1]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{color}
+\usepackage[ngerman]{babel}
+\usepackage[pdftex]{graphicx}
+%\usepackage[T1]{fontenc}
+\usepackage{gauss}
+
+\pagestyle{empty}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\definecolor{Brown}{cmyk}{0,0.81,1,0.60}
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\definecolor{CadetBlue}{cmyk}{0.62,0.57,0.23,0}
+\definecolor{lightlightgray}{gray}{0.9}
+\lstset{
+    language=C,                             % Code langugage
+    basicstyle=\rm\ttfamily,                % Code font, Examples: \footnotesize, \ttfamily
+    keywordstyle=\color{OliveGreen},        % Keywords font ('*' = uppercase)
+    commentstyle=\color{gray},              % Comments font
+    numbers=left,                           % Line nums position
+    numberstyle=\tiny,                      % Line-numbers fonts
+    stepnumber=1,                           % Step between two line-numbers
+    numbersep=5pt,                          % How far are line-numbers from code
+    backgroundcolor=\color{lightlightgray}, % Choose background color
+    frame=none,                             % A frame around the code
+    tabsize=2,                              % Default tab size
+    captionpos=b,                           % Caption-position = bottom
+    breaklines=true,                        % Automatic line breaking?
+    breakatwhitespace=false,                % Automatic breaks only at whitespace?
+    showspaces=false,                       % Dont make spaces visible
+    showtabs=false,                         % Dont make tabls visible
+    %columns=flexible,                       % Column format
+    %morekeywords={someword, otherword},     % specific keywords
+}
+
+
+
+%\topmargin20mm
+\oddsidemargin0mm
+\parindent0mm
+\parskip2mm
+\textheight24cm
+\textwidth15.8cm
+\unitlength1mm
+\usepackage{pdfpages}
+
+\begin{document}
+
+
+{\bf Aufgabe 1: Kombinatorik}
+
+Sie geben eine Party und laden 10 Leute ein.
+
+{\bf a) (10 Punkte) }
+
+Wie viele Möglichkeiten gibt es, die 10 Gäste an einen Tisch mit 10 Stühlen zu setzen?
+
+{\bf b) (10 Punkte)}
+
+ Jeder Gast soll mit jedem anderen Gast anstoßen. Wie oft klirren die Gläser?
+
+{\bf Lösung}
+
+
+{\bf a) }
+Keiner setzt sich auf zwei Plätze gleichzeitig, daher gibt es keine Wiederholung. Die Reihenfolge macht einen Unterschied. (5P) Daher gibt es $10!= 3.628.800$ Möglichkeiten (5P). 
+
+{\bf b) }
+Niemand stösst mit sich selbst an, daher keine Wiederholungen. Die Reihenfolge spielt keine Rolle. (5P) Die Gläser klirren also $ \begin{pmatrix} 10 \\ 2\end{pmatrix} = 45$ mal (5P).
+\hspace{10mm}
+
+
+
+{\bf Aufgabe 2: Bedingte Wahrscheinlichkeiten}
+
+In einer Fabrik werden die produzierten Werkstücke vor der Auslieferung überprüft. Hierfür werden für jedes Werkstück  hintereinander zwei Funktionstest durchgeführt.  Die Wahrscheinlichkeit, dass ein Werkstück beide Tests besteht, betrage $0.5$. Die Wahrscheinlichkeit, dass ein Werkstück  den ersten Test besteht betrage $0.6$. 
+
+{\bf a) (15 Punkte) }
+
+Berechnen Sie die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht, wenn er bereits den ersten bestanden hat.
+
+{\bf b) (5 Punkt) }
+
+Angenommen, die beiden Tests sind stochastisch unabhängig. Wie hoch ist dann die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht?
+
+{\bf Lösung}
+
+Wahrscheinlichkeit für  Test $T_1$  ist $P(T_1) = 0.6  \; (4P)$. Wahrscheinlichkeit für  Test $T_1$ und Test $T_2$ ist $P(T_1 \cap T_2) = 0.5  \; (4P)$.
+
+{\bf a) }
+$P(T_2 | T_1) = \frac{P(T_1 \cap T_2)}{P(T_1)}  \; (6P)= \frac{0.5} {0.6} \approx 0,83 \; (1P)$.
+
+
+{\bf b) }
+Sind $T_1$ und $T_2$ unabhängig, gilt  $P(T_2) = P(T_2 | T_1)  \; (4P) = 0.83  \; (1P)$.
+\hspace{10mm}
+
+{\bf Aufgabe 3: Wahrscheinlichkeitsraum und Verteilungen}
+
+{\bf a) (10 Punkte) }
+
+Was versteht man unter einem Laplace-Experiment?
+
+{\bf b) (10 Punkte) }
+
+Geben Sie eine Konstante $c  \in \mathbb{R}$ an, so dass die Funktion 
+\begin{align*}
+f(x) = \begin{cases} c x \text{ für }  0\leq x^3 \leq 2 \\ 0 \text{ sonst}\end{cases}
+\end{align*}
+ein Dichte auf $\mathbb{R}$ definiert.
+
+
+{\bf Lösung}
+
+{\bf a) }
+Man spricht von einem Laplace-Experiment, wenn der Ereignisraum $\Omega$ endlich viele Elemente $\#\Omega$ (5P) und ein Ereignis $A \subset \Omega$ die Wahrscheinlichkeit $P(A) = \frac{\#A}{\#\Omega}$ hat (5P).
+
+{\bf b) }
+Integration über eine Dichte muss $1$ ergeben (4P).  
+$\int_0^2 x^3 \; dx = \frac{1}{4} \cdot 16 = 4   \; (4P) \Rightarrow c = \frac{1}{4} \; (2P)$.
+
+
+{\bf Aufgabe 4: Zufallsvariablen und Erwartungswert}
+
+{\bf a) (10  Punkte) }
+
+Die Zufallsvariablen $X_1$ und $X_2$ seien stochastisch unabhängig   und im Intervall $[0,2]$ gleichverteilt.
+Berechnen Sie den Erwartungswert der Zufallsvariablen $Y = 2 \cdot X_1 \cdot X_2 + X_1^2$.
+
+{\bf b) (10 Punkte) }
+
+Erklären Sie die Aussage des zentralen Grenzwertsatz anhand eines Beispiels.
+
+
+
+{\bf Lösung}
+
+{\bf a) }
+Gleichverteilung auf  $[0,2] \Rightarrow  \mathbb{E}(X_1) =  \mathbb{E}(X_2) = 1 \; (2P)$  und $ \mathbb{E}(X_1^2) = \frac{4}{3} \; (2P)$. Da $X_1$ und $X_2$ unabhängig $\Rightarrow \mathbb{E}(X_1 X_2) =  \mathbb{E}(X_1)  \mathbb{E}(X_2)  = 1 \; (2P)$.  Damit ist $\mathbb{E}(Y) = \mathbb{E}(  2 \cdot X_1 \cdot X_2 + X_1^2)) \; = \mathbb{E}(2 \cdot  X_1 X_2) + \mathbb{E}(X_1^2)  \; (2P) =  2 \mathbb{E}(  X_1 X_2) +  \mathbb{E}(X_1^2)  \; (1P) =   2 + \frac{4}{3} = \frac{10}{3} \; (1P)$. 
+
+{\bf b) }
+%Seien $\{X_i  \}_i: \Omega \to \mathbb{R}$ unabhängige (1P), reelle Zufallsvariablen mit $\mathbb{E}(X_i) = \mu < \infty \; (1P)$ und $\mathbb{V}(X_i) = \sigma < \infty \; (1P)$. Dann gilt:
+%\begin{align*}
+%P \bigl  ( \bigl | \frac{1}{n} \sum_{i=1}^{n} X_i - \mu \bigr |  \geq \epsilon \bigr) \leq \frac{\sigma}{ n \cdot \epsilon^2} \; \; \underset{n \to \infty}{\longrightarrow} 0 \; (4P)
+%\end{align*}
+%Das schwache Gesetz der Grossen zahlen besagt, dass das arithmetische Mittel  einer grossen Stichproben (1P) einer Zufallsvariable mit einer beliebig kleinen, vorgegebenen Wahrscheinlichkeit (1P) dem Erwartungswert der Zufallsvariable entspricht (1P). 
+Wenn man den Durchschnitt von $n$ Messungen eines verrauschten Sensor betrachtet, so kann man wegen dem zentralen Grenzwertsatz näherungsweise Annehmen, dass die zugehörige Verteilung Normalverteilt ist (10P).  
+
+
+
+
+{\bf Aufgabe 5: Hypothesentest  (20 Punkte)}
+
+In den Nachrichten sehen Sie, dass  es im sonnigen Eppelheim im Schnitt an höchstens  20 von 100 Tagen regnet. Sie möchten diese Hypothese überprüfen und beobachten hierfür an $n=20$ Tagen das Wetter. Erstellen Sie einen geeigneten Hypothesentest. 
+Wie sollte Ihre Entscheidungsregel dann lauten, wenn Sie sicherstellen möchten, dass die Hypothese mit einer Irrtumswahrscheinlichkeit von $0.025$ unberechtigter Weise abgelehnt wird.
+
+{\bf Lösung}
+
+Wir wählen das Binomialmodell $(\mathcal{X}= \{ 0, \cdots, n\},  P(\mathcal{X}), P_\rho = B_{n, \rho} : \rho \in \Theta =  [0 ,1] ) \; (2P)$, wobei $P_\rho (\{k \})=  B_{n, \rho}(\{k\}) = \begin{pmatrix} n \\ k \end{pmatrix} \rho^k (1-\rho)^{n-k} $.  Wir testen die Nullhypothese $H_0: \rho \leq 0.2 \; (2P)$ gegen die Alternative $H_1: \rho > 0.2 \; (2P)$ Als Signifikanzniveau wählen wir $\alpha = 0.025 \; (2P)$ und als Statistik wählen wir die Identität $T(x) = x$. Als Testfunktion wählen wir $\varphi = 1_{ \{ c, \cdots, n \}} \; (2P)$ und müssen $c \in \mathcal{X}$ so wählen, dass $\sup_{\rho \in \Theta_0} \mathbb{E}(\varphi )  < \alpha \; (2P)$ gilt.  Wir ermitteln also $c-1$ als das $0.025$-Fraktil der Binomialverteilung  (2P) mit $20$ Freiheitsgraden (2P) und damit $c = 9$ (2P), da $P_{0,2} (x \geq 8) > 0.025 $ und  $P_{0,2} (x \geq 9) = 1 -P_{0.2} (8) \approx 1 - 0.99 = 0.001 < 0,025$ (2P).
+
+{\end{document}

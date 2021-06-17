@@ -1,0 +1,183 @@
+\documentclass[a4paper,12pt]{article}
+
+%\usepackage[latin1]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{color}
+\usepackage[ngerman]{babel}
+\usepackage[pdftex]{graphicx}
+%\usepackage[T1]{fontenc}
+\usepackage{gauss}
+
+\pagestyle{empty}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\definecolor{Brown}{cmyk}{0,0.81,1,0.60}
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\definecolor{CadetBlue}{cmyk}{0.62,0.57,0.23,0}
+\definecolor{lightlightgray}{gray}{0.9}
+\lstset{
+    language=C,                             % Code langugage
+    basicstyle=\rm\ttfamily,                % Code font, Examples: \footnotesize, \ttfamily
+    keywordstyle=\color{OliveGreen},        % Keywords font ('*' = uppercase)
+    commentstyle=\color{gray},              % Comments font
+    numbers=left,                           % Line nums position
+    numberstyle=\tiny,                      % Line-numbers fonts
+    stepnumber=1,                           % Step between two line-numbers
+    numbersep=5pt,                          % How far are line-numbers from code
+    backgroundcolor=\color{lightlightgray}, % Choose background color
+    frame=none,                             % A frame around the code
+    tabsize=2,                              % Default tab size
+    captionpos=b,                           % Caption-position = bottom
+    breaklines=true,                        % Automatic line breaking?
+    breakatwhitespace=false,                % Automatic breaks only at whitespace?
+    showspaces=false,                       % Dont make spaces visible
+    showtabs=false,                         % Dont make tabls visible
+    %columns=flexible,                       % Column format
+    %morekeywords={someword, otherword},     % specific keywords
+}
+
+
+
+%\topmargin20mm
+\oddsidemargin0mm
+\parindent0mm
+\parskip2mm
+\textheight24cm
+\textwidth15.8cm
+\unitlength1mm
+\usepackage{pdfpages}
+
+\begin{document}
+
+
+
+{\bf Aufgabe 1: Kombinatorik}
+
+In einem Raum gibt es acht Lampen, die unabhängig voneinander ein- und ausgeschaltet werden können.
+Wie viele Beleuchtungsarten gibt es
+
+{\bf a) (12,5 Punkte) }
+
+wenn fünf Lampen brennen sollen?
+
+{\bf b) (7,5 Punkte)}
+
+wenn mindestens fünf Lampen brennen sollen?
+
+{\bf Lösung}
+
+Für die Auswahl von $n$  Lampen aus $N= 8$  ohne Beachtung der Reihenfolge gibt es 
+\begin{align*}
+M(n):= \begin{pmatrix} 8 \\ n\end{pmatrix}
+\end{align*}
+Möglichkeiten (6P).
+
+
+{\bf a) }
+$M(5) = \begin{pmatrix} 8 \\ 5\end{pmatrix}  \; (2.5P)= \frac{8!}{5! (8-5)!}  \;(1P) =  \frac{8!}{5! (3)!} \; (1P) =  \frac{8 \cdot 7 \cdot 6}{3 \cdot 2} \; (1P) = 8 \cdot 7 = 56 \;(1P)$
+
+{\bf b) }
+Für mindestens fünf brennende Lampen gibt es $M(5) + M(6) + M(7)  + M(8)  \; (3.5P)= 56 + 28 + 8 + 1  \; (3P)= 93  \; (1P)$ Möglichkeiten.
+\hspace{10mm}
+
+
+
+{\bf Aufgabe 2: Bedingte Wahrscheinlichkeiten}
+
+In einer Fabrik werden die produzierten Werkstücke vor der Auslieferung überprüft. Hierfür werden für jedes Werkstück  hintereinander zwei Funktionstest durchgeführt.  Die Wahrscheinlichkeit, dass ein Werkstück beide Tests besteht, betrage $0,55$. Die Wahrscheinlichkeit, dass ein Werkstück  den ersten Test besteht betrage $0,72$. 
+
+{\bf a) (15 Punkte) }
+
+Berechnen Sie die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht, wenn er bereits den ersten bestanden hat.
+
+{\bf b) (5 Punkt) }
+
+Angenommen, die beiden Tests sind stochastisch unabhängig. Wie hoch ist dann die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht?
+
+{\bf Lösung}
+
+Wahrscheinlichkeit für  Test $T_1$  ist $P(T_1) = 0,72  \; (4P)$. Wahrscheinlichkeit für  Test $T_1$ und Test $T_2$ ist $P(T_1 \cap T_2) = 0,55  \; (4P)$.
+
+{\bf a) }
+$P(T_2 | T_1) = \frac{P(T_1 \cap T_2)}{P(T_1)}  \; (6P)= \frac{0,55} {0,72} \approx 0,7639  \; (1P)$.
+
+
+{\bf b) }
+Sind $T_1$ und $T_2$ unabhängig, gilt  $P(T_2) = P(T_2 | T_1)  \; (4P) = 0,7639  \; (1P)$.
+
+\hspace{10mm}
+
+{\bf Aufgabe 3: Wahrscheinlichkeitsraum und Verteilungen}
+
+{\bf a) (10 Punkte) }
+
+Geben Sie die Axiome für einen Wahrscheinlichkeitsraum an. 
+
+{\bf b) (10 Punkte) }
+
+Geben Sie eine Konstante $c  \in \mathbb{R}$ an, so dass die Funktion 
+\begin{align*}
+f(x) = \begin{cases} c x^2 \text{ für }  0\leq x \leq 1 \\ 0 \text{ sonst}\end{cases}
+\end{align*}
+ein Dichte auf $\mathbb{R}$ definiert.
+
+
+{\bf Lösung}
+
+{\bf a) }
+Ein Wahrscheinlichkeitsraum ist ein Tripel $(\Omega, \mathcal{A}, P) $ bestehend aus der Grundmenge $\Omega  \; (1P)$, einer $\sigma$-Algebra $\mathcal{A} \subset  \mathcal{P}(\Omega)  \; (1P)$ und einer Abbildung
+$P : \mathcal{A} \to [0,1]  \; (1P)$
+\begin{align*}
+(i) & \; P(\Omega) = 1   \; (3P)\\
+(ii) & \;  P \biggl(  \bigcup_i A_i  \biggr) = \sum_i P(A_i)  \; (3P), \text{ mit } A_i \cap A_j = \emptyset \text{ für } i \neq j  \; (1P)
+\end{align*}
+
+{\bf b) }
+Integration über eine Dichte muss $1$ ergeben (4P).  
+$\int_0^1 x^2 \; dx = \frac{1}{3}  \; (4P) \Rightarrow c = 3 \; (2P)$.
+
+
+{\bf Aufgabe 4: Zufallsvariable und Erwartungswert}
+
+{\bf a) (10  Punkte) }
+
+Die Zufallsvariablen $X_1$ und $X_2$ seien stochastisch unabhängig   und im Intervall $[0,1]$ gleichverteilt.
+Berechnen Sie den Erwartungswert der Zufallsvariablen $Y = X_1 \cdot (X_2 - X_1)$.
+
+{\bf b) (10 Punkte) }
+
+Formulieren Sie das schwache Gesetz  der grossen Zahlen und erläutern Sie die Aussage.
+
+
+
+{\bf Lösung}
+
+{\bf a) }
+Gleichverteilung auf  $[0,1] \Rightarrow  \mathbb{E}(X_1) =  \mathbb{E}(X_2) = \frac{1}{2} \; (2P)$. und $ \mathbb{E}(X_1^2) = \frac{1}{3} \; (2P)$. Da $X_1$ und $X_2$ unabhängig $\Rightarrow \mathbb{E}(X_1 X_2) =  \mathbb{E}(X_1)  \mathbb{E}(X_2)  = \frac{1}{4} \; (2P)$.  Damit ist $\mathbb{E}(Y) = \mathbb{E}( X_1 \cdot (X_2 - X_1)) \; = \mathbb{E}( X_1 X_2 - X_1^2)  \; (1P) = \mathbb{E}( X_1 X_2) - \mathbb{E}(X_1^2)  \; (2P) =  \frac{1}{4} - \frac{1}{3} = \frac{-1}{12} \; (1P)$. 
+
+
+{\bf b) }
+Seien $\{X_i  \}_i: \Omega \to \mathbb{R}$ unabhängige (1P), reelle Zufallsvariablen mit $\mathbb{E}(X_i) = \mu < \infty \; (1P)$ und $\mathbb{V}(X_i) = \sigma < \infty \; (1P)$. Dann gilt:
+\begin{align*}
+P \bigl  ( \bigl | \frac{1}{n} \sum_{i=1}^{n} X_i - \mu \bigr |  \geq \epsilon \bigr) \leq \frac{\sigma}{ n \cdot \epsilon^2} \; \; \underset{n \to \infty}{\longrightarrow} 0 \; (4P)
+\end{align*}
+Das schwache Gesetz der Grossen zahlen besagt, dass das arithmetische Mittel  einer grossen Stichproben (1P) einer Zufallsvariable mit einer beliebig kleinen, vorgegebenen Wahrscheinlichkeit (1P) dem Erwartungswert der Zufallsvariable entspricht (1P). 
+
+\hspace{10mm}
+
+
+
+
+{\bf Aufgabe 5: Hypothesentest  (20 Punkte)}
+
+In der Zeitung lesen Sie, dass es im sonnigen Mannheim im Schnitt höchstens an 10 von 100 Tagen regnet. Sie möchten diese Hypothese überprüfen und beobachten hierfür an $n=20$ Tagen das Wetter. Erstellen Sie einen geeigneten Hypothesentest. 
+Wie sollte Ihre Entscheidungsregel dann lauten, wenn Sie sicherstellen möchten, dass die Hypothese mit einer Irrtumswahrscheinlichkeit von $0.05$ unberechtigter Weise abgelehnt wird.
+
+{\bf Lösung}
+
+Wir wählen das Binomialmodell $(\mathcal{X}= \{ 0, \cdots, n\},  P(\mathcal{X}), P_\rho = B_{n, \rho} : \rho \in \Theta =  [0 ,1] ) \; (2P)$, wobei $P_\rho (\{k \})=  B_{n, \rho}(\{k\}) = \begin{pmatrix} n \\ k \end{pmatrix} \rho^k (1-\rho)^{n-k} $.  Wir testen die Nullhypothese $H_0: \rho \leq 0.1 \; (2P)$ gegen die Alternative $H_1: \rho > 0.1 \; (2P)$ Als Signifikanzniveau wählen wir $\alpha = 0.05 \; (2P)$ und als Statistik wählen wir die Identität $T(x) = x$. Als Testfunktion wählen wir $\varphi = 1_{ \{ c, \cdots, n \}} \; (2P)$ und müssen $c \in \mathcal{X}$ so wählen, dass $\sup_{\rho \in \Theta_0} \mathbb{E}(\varphi )  < \alpha \; (2P)$ gilt.  Wir ermitteln also $c-1$ als das $0.05$-Fraktil der Binomialverteilung  (2P) mit $20$ Freiheitsgraden (2P) und damit $c = 5$ (2P), da $P_{0,1} (x \geq 4) > 0,05 $ und  $P_{0,1} (x \geq 5) = 1 -P_{0,1} (4) \approx 1 - 0,9568 = 0,0432 < 0,05$ (2P).
+
+{\end{document}
