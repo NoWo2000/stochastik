@@ -1,0 +1,304 @@
+\documentclass[a4paper,13pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[all]{hypcap}
+\hypersetup{
+        colorlinks = true, % comment this to make xdvi work
+        linkcolor  = blue,
+        citecolor  = red,
+        filecolor  = Gold,
+        urlcolor   = blue,
+        pdfborder  = {0 0 0} 
+}
+\usepackage{color}
+\usepackage[ngerman]{babel}
+\usepackage[pdftex]{graphicx}
+%\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\pagestyle{empty}
+
+%\topmargin20mm
+\oddsidemargin0mm
+\parindent0mm
+\parskip2mm
+\textheight25.5cm
+\textwidth15.8cm
+\unitlength1mm
+
+\newcommand{\exercise}{\vspace*{0.2cm}
+\stepcounter{aufgabe}
+\noindent
+\textbf{Aufgabe \arabic{aufgabe}}: }
+\newcounter{aufgabe}
+
+\newcommand{\solution}{\vspace*{0.2cm}
+\noindent
+\textbf{Lösung}: }
+
+
+
+\begin{document}
+\section*{\large  Aufgaben Übungsblätter}
+\hrule
+\hrule
+\vspace{4mm}
+
+\exercise
+Beim Lottospiel werden ohne Zurücklegen $6$ Zahlen aus $49$ gezogen. Berechnen Sie die folgenden Wahrscheinlichkeiten:
+\begin{enumerate}[label=(\alph*)]
+\item Alle $6$ Gewinnzahlen richtig zu tippen.
+\item Genau $5$ richtige Gewinnzahlen zu tippen.
+\item Mindestens $3$ richtige Gewinnzahlen zu tippen.
+\item Alle $6$ Gewinnzahlen sind gerade.
+\end{enumerate}
+\vspace{8mm}
+
+\solution
+ Der Grundraum beim Lottospiel ist eine Kombination ohne Beachtung der Reihenfolge
+$\Omega = \{ (z_1, \dots,  z_6) \; | \;  z_i \in \{1, \cdots, 49 \} \land z_1 < z_2 < \cdots < z_6 \}$ und damit ist $$| \Omega| = \begin{pmatrix} 
+    49 \\ 6 \end{pmatrix} = 13983816$$
+Die Anzahl $A_i$ an Kombinationen $i$  Zahlen aus $6$ richtigen zu tippen ist $$ \begin{pmatrix} 
+    6 \\ i \end{pmatrix} \cdot \begin{pmatrix} 
+    43   \\ 6 -i \end{pmatrix}$$ ($i$ Zahlen von $6$ richtig Tippen mal $6-i$ Zahlen von den falschen $49-6$ Zahlen zu tippen)\\
+Die Lösungen sind nun:
+\begin{enumerate}[label=(\alph*)]
+\item $ | A_6 |  = 1 \Rightarrow P(A_6) = \frac{1}{|\Omega|}  \approx 7,14 \cdot 10^{-8}$
+\item $ | A_5 |  =  \begin{pmatrix} 
+    6 \\ 5 \end{pmatrix} \cdot \begin{pmatrix} 
+    43   \\ 1 \end{pmatrix} = 258 \Rightarrow P(A_5) = \frac{258}{|\Omega|}   \approx 1,845 \cdot 10^{-5}$
+\item $B = \{ \text{mindestens 3 richtig}\} = A_6 \cup A_5 \cup A_4 \cup A_3$.\\
+$$P(B) = P (A_6 \cup A_5 \cup A_4 \cup A_3)= P(A_6) + P(A_5) + P(A_4) + P(A_3)$$
+(Da $A_i$ paarweise disjunkt)\\
+ $$ | A_4 |  =  \begin{pmatrix} 
+    6 \\ 4 \end{pmatrix} \cdot \begin{pmatrix} 
+    43   \\ 2 \end{pmatrix} = 13545 \Rightarrow P(A_4) = \frac{13545}{|\Omega|}   \approx 9,69 \cdot 10^{-4}$$
+    
+ $$ | A_3 |  =  \begin{pmatrix} 
+    6 \\ 3 \end{pmatrix} \cdot \begin{pmatrix} 
+    43   \\ 3 \end{pmatrix} = 246820 \Rightarrow P(A_4) = \frac{246820}{|\Omega|}   \approx 0,01765$$
+\\$\Rightarrow P(B) \approx 0,018637545$
+\item Es gibt $24$ gerade Zahlen zwischen $1$ und $49$ und damit $ \begin{pmatrix} 
+    24 \\ 6 \end{pmatrix}$ Möglichkeiten, dass alle Gewinnzahlen gerade sind. Damit ist $$P(\texttt{nur gerade Gewinnzahlen}) = \frac{\begin{pmatrix} 
+    24 \\ 6 \end{pmatrix}}{\begin{pmatrix} 
+    49 \\ 6 \end{pmatrix}} \approx 0,00963$$
+\end{enumerate}
+\vspace{8mm}
+
+
+\exercise
+In einem Raum gibt es acht Lampen, die unabhängig voneinander ein- und ausgeschaltet werden können.
+Wie viele Beleuchtungsarten gibt es
+\begin{enumerate}[label=(\alph*)]
+\item wenn fünf Lampen brennen sollen?
+\item wenn mindestens fünf Lampen brennen sollen?
+\end{enumerate}
+\vspace{8mm}
+
+\solution
+Für die Auswahl von $n$  Lampen aus $N= 8$  ohne Beachtung der Reihenfolge gibt es 
+\begin{align*}
+M(n):= \begin{pmatrix} 8 \\ n\end{pmatrix}
+\end{align*}
+Möglichkeiten.
+\begin{enumerate}[label=(\alph*)]
+\item $M(5) = \begin{pmatrix} 8 \\ 5\end{pmatrix}  \; = \frac{8!}{5! (8-5)!}  \; =  \frac{8!}{5! (3)!} \;  =  \frac{8 \cdot 7 \cdot 6}{3 \cdot 2} \;  = 8 \cdot 7 = 56$
+\item Für mindestens fünf brennende Lampen gibt es $M(5) + M(6) + M(7)  + M(8)  \; = 56 + 28 + 8 + 1  \; = 93$ Möglichkeiten.
+\end{enumerate}
+\vspace{8mm}
+
+
+\exercise
+Sie geben eine Party und laden 10 Leute ein.
+\begin{enumerate}[label=(\alph*)]
+\item Wie viele Möglichkeiten gibt es, die 10 Gäste an einen Tisch mit 10 Stühlen zu setzen?
+\item  Jeder Gast soll mit jedem anderen Gast anstoßen. Wie oft klirren die Gläser?
+\end{enumerate}
+\vspace{8mm}
+
+
+\exercise
+Drei Bits werden über einen digitalen Nachrichtenkanal übertragen. Jedes Bit kann falsch oder richtig empfangen werden.
+\begin{enumerate}[label=(\alph*)]
+\item Geben Sie den Ereignisraum (Grundmenge) $\Omega$ an.
+\item Wie viele Elemente besitzt $\Omega$?
+\item Es sei $A_i := \{ \text{ i-tes Bit ist verfälscht}\}$. Geben Sie das Ereignis $A_1$ an.
+\end{enumerate}
+\vspace{8mm}
+
+\solution
+\begin{enumerate}[label=(\alph*)]
+\item $\Omega = \{ (b_1, b_2, b_3) \; | \;  b_i \in \{ V (\text{verfälscht}), R (\text{richtig}) \} \land i \in \{1,2,3\} \}$.
+\item $| \Omega | = Var_3^2(\Omega, m.W) =  2^3 = 8$.
+\item $A_1 = \{ (V, b_2, b_3) \; | \;  b_i \in \{ V,R  \}  \land i \in \{2,3\} \} = \{ (V,R,R), (V,V,V), (V,R,V), (V,V,R) ) \}$.
+\end{enumerate}
+\vspace{8mm}
+
+
+\exercise
+Es sei $\Omega = \{ 1,2,3,4\}$. 
+\begin{enumerate}[label=(\alph*)]
+\item Welche der folgenden Mengen sind $\sigma$-Algebren?
+\begin{align*}
+& A =  \{ \emptyset,  \Omega  \} \\
+& B=  \{ \emptyset,  \Omega , \{ 1\}, \{ 2,3\}, \{ 4\} \}  \\
+& C=  \{ \emptyset,  \Omega ,  \{ 1,2\}, \{ 3, 4\} \}  
+\end{align*}
+\item Geben Sie die kleinste Sigma-Algebra über $\Omega$ an, in der die Mengen $ \{ 1\}$ und $ \{ 2\}$ enthalten sind.
+\end{enumerate}
+\vspace{8mm}
+
+\solution
+\begin{enumerate}[label=(\alph*)]
+\item $A$ ist eine $\sigma$-Algebra, da 
+\begin{itemize}
+\item $\Omega^c =  \emptyset \in A$
+\item $\emptyset^c = \Omega \in A$
+\item $\emptyset \cup \Omega = \Omega$
+\item $\Omega \in A$
+\end{itemize}
+\item $B$ ist keine $\sigma$-Algebra, da zum Beispiel $\{ 1 \}^c = \{ 2,3,4 \} \notin B$.
+\item $C$ ist eine   $\sigma$-Algebra, da 
+\begin{itemize}
+\item $\{ 1,2 \}^c = \{ 3,4 \} \in C$
+\item $\{ 3,4 \}^c = \{ 1,2 \} \in C$
+\item $\Omega \in C$
+\item $ \Omega^c =  \emptyset \subset C$
+\item $\emptyset^c = \Omega \in C$
+\item $\{ 3,4 \} \cup\{ 1,2 \} = \Omega \in C$
+\end{itemize}
+\item Die kleinste $\sigma$-Algebra ist $  \{ \emptyset,  \Omega , \{ 1\}, \{ 2\}, \{ 1, 2\},  \{ 2,3,4\}, \{1, 3, 4\}, \{ 3,4\} \} $
+\end{enumerate}
+\vspace{8mm}
+
+
+\exercise
+Bei einer Qualitätskontrolle können Werkstücke zwei Fehler haben, den Fehler $A$ und den Fehler $B$. Aus Erfahrung ist bekannt, dass ein Werkstück mit Wahrscheinlichkeit $0.05$  den Fehler $A$, mit Wahrscheinlichkeit $0.01$ beide Fehler und mit  Wahrscheinlichkeit $0.03$ nur den Fehler $B$ hat.
+\begin{enumerate}[label=(\alph*)]
+\item Mit welcher Wahrscheinlichkeit hat ein Werkstück den Fehler $B$?
+\item Mit welcher Wahrscheinlichkeit ist das Werkstück fehlerfrei, beziehungsweise fehlerhaft?
+\item Bei einem Werkstück wurde der Fehler $A$ festgestellt, während die Untersuchung auf Fehler $B$ noch nicht erfolgt ist. Mit welcher Wahrscheinlichkeit hat es auch den Fehler $B$?
+\item Mit welcher Wahrscheinlichkeit ist ein Werkstück fehlerfrei, falls es den Fehler $B$ nicht besitzt?
+\item Sind die Ereignisse ''Werkstück hat Fehler $A$''  und ''Werkstück hat Fehler $B$'' unabhängig?
+\end{enumerate}
+\vspace{8mm}
+
+\solution
+Gegeben: $P(A) = 0,05; P(A \cap B) = 0,01; P(A^c \cap B) = 0,03$.
+\begin{enumerate}[label=(\alph*)]
+\item $P(B) = P(A \cap B) + P(A^c \cap B) = 0,01 + 0,03 = 0,04$.
+\item $ \{ \text{Werkstück ist fehlerhaft} \} = A \cup B$.  $$P(A \cup B) = P(A) + P(B) - P(A \cap B)= 0,05 + 0,04 -0,01 = 0,08$$
+\\ $ \{ \text{Werkstück ist fehlerfrei} \} = A^c \cap B^c$.  $$P(A^c \cap B^c) = P((A \cup B)^c) = 1 - P(A \cup B)= 0,92$$
+\item $P(B | A) = \frac{P(B \cap A)}{P(A)} = \frac{0,01}{0,05} = 0,2$.
+\item $P(A^c | B^c) = \frac{P(A^c \cap B^c)}{P(B^c)} = \frac{P(A^c \cap B^c)}{1 - P(B)} = \frac{0,92}{0,96} \approx 0,9583$.
+\item $0,01 = P(A \cap B) \neq P(A) \cdot P(B) = 0,05 \cdot 0,04 = 0,002$ $$ \Rightarrow A \text{ und } B \text{ sind nicht unabhängig.}$$
+\end{enumerate}
+\vspace{8mm}
+
+
+\exercise
+In einer Fabrik werden die produzierten Werkstücke vor der Auslieferung überprüft. Hierfür werden für jedes Werkstück   zwei Funktionstest durchgeführt.  Die Wahrscheinlichkeit, dass ein Werkstück beide Tests besteht, betrage $0,55$. Die Wahrscheinlichkeit, dass ein Werkstück  den ersten Test besteht betrage $0,72$. 
+\begin{enumerate}[label=(\alph*)]
+\item Berechnen Sie die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht, wenn er bereits den ersten bestanden hat.
+\item Angenommen, die beiden Tests sind stochastisch unabhängig. Wie hoch ist dann die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht?
+\end{enumerate}
+\vspace{8mm}
+
+\solution
+Die Wahrscheinlichkeit für  Test $T_1$  ist $P(T_1) = 0,72$.\\
+Die Wahrscheinlichkeit für  Test $T_1$ und Test $T_2$ ist $P(T_1 \cap T_2) = 0,55$.
+\begin{enumerate}[label=(\alph*)]
+\item $P(T_2 | T_1) = \frac{P(T_1 \cap T_2)}{P(T_1)} = \frac{0,55} {0,72} \approx 0,7639$.
+
+\item Sind $T_1$ und $T_2$ unabhängig, gilt  $P(T_2) = P(T_2 | T_1) = 0,7639$.
+
+\end{enumerate}
+\vspace{8mm}
+
+
+\exercise
+In einer Fabrik werden die produzierten Werkstücke vor der Auslieferung überprüft. Hierfür werden für jedes Werkstück  hintereinander zwei Funktionstest durchgeführt.  Die Wahrscheinlichkeit, dass ein Werkstück beide Tests besteht, betrage $0.5$. Die Wahrscheinlichkeit, dass ein Werkstück  den ersten Test besteht betrage $0.6$.  
+\begin{enumerate}[label=(\alph*)]
+\item Berechnen Sie die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht, wenn er bereits den ersten bestanden hat.
+\item Angenommen, die beiden Tests sind stochastisch unabhängig. Wie hoch ist dann die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht?
+\end{enumerate}
+\vspace{8mm}
+
+
+\exercise
+In einer Urne befinden sich 4 schwarze und 6 weiße Kugeln.
+Es werden nacheinander zwei Kugeln gezogen, wobei die erste Kugel zurückgelegt wird, bevor die Zweite gezogen wird.
+Zeigen Sie, dass das Ziehen einer schwarzen oder weißen Kugel im zweiten Zug stochastisch unabhängig davon ist, welche Kugel im ersten Zug gezogen wurde.
+Gilt das auch, wenn nach dem ersten Zug die Kugel nicht zurückgelegt wird?
+\vspace{8mm}
+
+\solution
+
+Beim Versuch mit Zurücklegen sind die bedingten Wahrscheinlichkeiten $P(W|S) = P(W) = \frac{6}{10}$ und $P(S |W) = P(S  ) = \frac{4}{10}$ gleich und somit stochastisch unabhängige Ereignisse.\\
+Beim Versuch ohne Zurücklegen sind die bedingten Wahrscheinlichkeiten $ \frac{6}{9} = P(W|S) \neq P(W) =  \frac{5}{9}$  nicht gleich und somit keine stochastisch unabhängigen Ereignisse.
+\vspace{8mm}
+
+
+\exercise
+Geben Sie eine Konstante $c  \in \mathbb{R}$ an, so dass die Funktion 
+\begin{align*}
+f(x) = \begin{cases} c x^2 \text{ für }  0\leq x \leq 1 \\ 0 \text{ sonst}\end{cases}
+\end{align*}
+eine Dichte auf $\mathbb{R}$ definiert.
+\vspace{8mm}
+
+
+\exercise
+Geben Sie eine Konstante $c  \in \mathbb{R}$ an, so dass die Funktion 
+\begin{align*}
+f(x) = \begin{cases} c x^3 \text{ für }  0\leq x \leq 2 \\ 0 \text{ sonst}\end{cases}
+\end{align*}
+ein Dichte auf $\mathbb{R}$ definiert.
+\vspace{8mm}
+
+
+\exercise
+Die Zufallsvariablen $X_1$ und $X_2$ seien stochastisch unabhängig   und im Intervall $[0,1]$ gleichverteilt.
+Berechnen Sie den Erwartungswert der Zufallsvariablen
+\begin{align*}
+Y = X_1 \cdot (X_2 - X_1)
+\end{align*} 
+\vspace{8mm}
+
+
+\exercise
+Die Zufallsvariablen $X_1$ und $X_2$ seien stochastisch unabhängig   und im Intervall $[0,2]$ gleichverteilt.
+Berechnen Sie den Erwartungswert der Zufallsvariablen
+\begin{align*}
+Y = 2 \cdot X_1 \cdot X_2 + X_1^2
+\end{align*} 
+\vspace{8mm}
+
+
+\exercise
+Geben Sie die Axiome für einen Wahrscheinlichkeitsraum an.
+\vspace{8mm}
+
+
+\exercise
+Formulieren Sie das schwache Gesetz  der grossen Zahlen und erläutern Sie die Aussage.
+\vspace{8mm}
+
+
+\exercise
+Was versteht man unter einem Laplace-Experiment?
+\vspace{8mm}
+
+
+\exercise
+Erklären Sie die Aussage des zentralen Grenzwertsatzes anhand eines Beispiels.
+\vspace{8mm}
+
+
+\end{document}
+
