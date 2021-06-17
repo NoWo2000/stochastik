@@ -1,0 +1,184 @@
+\documentclass[a4paper,13pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[all]{hypcap}
+\hypersetup{
+        colorlinks = true, % comment this to make xdvi work
+        linkcolor  = blue,
+        citecolor  = red,
+        filecolor  = Gold,
+        urlcolor   = blue,
+        pdfborder  = {0 0 0} 
+}
+\usepackage{color}
+\usepackage[ngerman]{babel}
+\usepackage[pdftex]{graphicx}
+%\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\pagestyle{empty}
+
+%\topmargin20mm
+\oddsidemargin0mm
+\parindent0mm
+\parskip2mm
+\textheight25.5cm
+\textwidth15.8cm
+\unitlength1mm
+
+\newcommand{\exercise}{\vspace*{0.2cm}
+\stepcounter{aufgabe}
+\noindent
+\textbf{Aufgabe \arabic{aufgabe}}: }
+\newcounter{aufgabe}
+
+
+
+\begin{document}
+\section*{\large  Aufgaben Übungsblätter}
+\hrule
+\hrule
+\vspace{4mm}
+
+\exercise
+Beim Lottospiel werden ohne Zurücklegen $6$ Zahlen aus $49$ gezogen. Berechnen Sie die folgenden Wahrscheinlichkeiten:
+\begin{enumerate}[label=(\alph*)]
+\item Alle $6$ Gewinnzahlen richtig zu tippen.
+\item Genau $5$ richtige Gewinnzahlen zu tippen.
+\item Mindestens $3$ richtige Gewinnzahlen zu tippen.
+\item Alle $6$ Gewinnzahlen sind gerade.
+\end{enumerate}
+\vspace{8mm}
+
+\exercise
+In einem Raum gibt es acht Lampen, die unabhängig voneinander ein- und ausgeschaltet werden können.
+Wie viele Beleuchtungsarten gibt es
+\begin{enumerate}[label=(\alph*)]
+\item wenn fünf Lampen brennen sollen?
+\item wenn mindestens fünf Lampen brennen sollen?
+\end{enumerate}
+\vspace{8mm}
+
+\exercise
+Sie geben eine Party und laden 10 Leute ein.
+\begin{enumerate}[label=(\alph*)]
+\item Wie viele Möglichkeiten gibt es, die 10 Gäste an einen Tisch mit 10 Stühlen zu setzen?
+\item  Jeder Gast soll mit jedem anderen Gast anstoßen. Wie oft klirren die Gläser?
+\end{enumerate}
+\vspace{8mm}
+
+\exercise
+Drei Bits werden über einen digitalen Nachrichtenkanal übertragen. Jedes Bit kann falsch oder richtig empfangen werden.
+\begin{enumerate}[label=(\alph*)]
+\item Geben Sie den Ereignisraum (Grundmenge) $\Omega$ an.
+\item Wie viele Elemente besitzt $\Omega$?
+\item Es sei $A_i := \{ \text{ i-tes Bit ist verfälscht}\}$. Geben Sie das Ereignis $A_1$ an.
+\end{enumerate}
+\vspace{8mm}
+
+\exercise
+Es sei $\Omega = \{ 1,2,3,4\}$. 
+\begin{enumerate}[label=(\alph*)]
+\item Welche der folgenden Mengen sind $\sigma$-Algebren?
+\begin{align*}
+& A =  \{ \emptyset,  \Omega  \} \\
+& B=  \{ \emptyset,  \Omega , \{ 1\}, \{ 2,3\}, \{ 4\} \}  \\
+& C=  \{ \emptyset,  \Omega ,  \{ 1,2\}, \{ 3, 4\} \}  
+\end{align*}
+\item Geben Sie die kleinste Sigma-Algebra über $\Omega$ an, in der die Mengen $ \{ 1\}$ und $ \{ 2\}$ enthalten sind.
+\end{enumerate}
+\vspace{8mm}
+
+\exercise
+Bei einer Qualitätskontrolle können Werkstücke zwei Fehler haben, den Fehler $A$ und den Fehler $B$. Aus Erfahrung ist bekannt, dass ein Werkstück mit Wahrscheinlichkeit $0.05$  den Fehler $A$, mit Wahrscheinlichkeit $0.01$ beide Fehler und mit  Wahrscheinlichkeit $0.03$ nur den Fehler $B$ hat.
+\begin{enumerate}[label=(\alph*)]
+\item Mit welcher Wahrscheinlichkeit hat ein Werkstück den Fehler $B$?
+\item Mit welcher Wahrscheinlichkeit ist das Werkstück fehlerfrei, beziehungsweise fehlerhaft?
+\item Bei einem Werkstück wurde der Fehler $A$ festgestellt, während die Untersuchung auf Fehler $B$ noch nicht erfolgt ist. Mit welcher Wahrscheinlichkeit hat es auch den Fehler $B$?
+\item Mit welcher Wahrscheinlichkeit ist ein Werkstück fehlerfrei, falls es den Fehler $B$ nicht besitzt?
+\item Sind die Ereignisse ''Werkstück hat Fehler $A$''  und ''Werkstück hat Fehler $B$'' unabhängig?
+\end{enumerate}
+\vspace{8mm}
+
+\exercise
+In einer Fabrik werden die produzierten Werkstücke vor der Auslieferung überprüft. Hierfür werden für jedes Werkstück   zwei Funktionstest durchgeführt.  Die Wahrscheinlichkeit, dass ein Werkstück beide Tests besteht, betrage $0,55$. Die Wahrscheinlichkeit, dass ein Werkstück  den ersten Test besteht betrage $0,72$. 
+\begin{enumerate}[label=(\alph*)]
+\item Berechnen Sie die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht, wenn er bereits den ersten bestanden hat.
+\item Angenommen, die beiden Tests sind stochastisch unabhängig. Wie hoch ist dann die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht?
+\end{enumerate}
+\vspace{8mm}
+
+\exercise
+In einer Fabrik werden die produzierten Werkstücke vor der Auslieferung überprüft. Hierfür werden für jedes Werkstück  hintereinander zwei Funktionstest durchgeführt.  Die Wahrscheinlichkeit, dass ein Werkstück beide Tests besteht, betrage $0.5$. Die Wahrscheinlichkeit, dass ein Werkstück  den ersten Test besteht betrage $0.6$.  
+\begin{enumerate}[label=(\alph*)]
+\item Berechnen Sie die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht, wenn er bereits den ersten bestanden hat.
+\item Angenommen, die beiden Tests sind stochastisch unabhängig. Wie hoch ist dann die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht?
+\end{enumerate}
+\vspace{8mm}
+
+\exercise
+In einer Urne befinden sich 4 schwarze und 6 weiße Kugeln.
+Es werden nacheinander zwei Kugeln gezogen, wobei die erste Kugel zurückgelegt wird, bevor die Zweite gezogen wird.
+Zeigen Sie, dass das Ziehen einer schwarzen oder weißen Kugel im zweiten Zug stochastisch unabhängig davon ist, welche Kugel im ersten Zug gezogen wurde.
+Gilt das auch, wenn nach dem ersten Zug die Kugel nicht zurückgelegt wird?
+\vspace{8mm}
+
+\exercise
+Geben Sie eine Konstante $c  \in \mathbb{R}$ an, so dass die Funktion 
+\begin{align*}
+f(x) = \begin{cases} c x^2 \text{ für }  0\leq x \leq 1 \\ 0 \text{ sonst}\end{cases}
+\end{align*}
+eine Dichte auf $\mathbb{R}$ definiert.
+\vspace{8mm}
+
+\exercise
+Geben Sie eine Konstante $c  \in \mathbb{R}$ an, so dass die Funktion 
+\begin{align*}
+f(x) = \begin{cases} c x^3 \text{ für }  0\leq x \leq 2 \\ 0 \text{ sonst}\end{cases}
+\end{align*}
+ein Dichte auf $\mathbb{R}$ definiert.
+\vspace{8mm}
+
+\exercise
+Die Zufallsvariablen $X_1$ und $X_2$ seien stochastisch unabhängig   und im Intervall $[0,1]$ gleichverteilt.
+Berechnen Sie den Erwartungswert der Zufallsvariablen
+\begin{align*}
+Y = X_1 \cdot (X_2 - X_1)
+\end{align*} 
+\vspace{8mm}
+
+\exercise
+Die Zufallsvariablen $X_1$ und $X_2$ seien stochastisch unabhängig   und im Intervall $[0,2]$ gleichverteilt.
+Berechnen Sie den Erwartungswert der Zufallsvariablen
+\begin{align*}
+Y = 2 \cdot X_1 \cdot X_2 + X_1^2
+\end{align*} 
+\vspace{8mm}
+
+\exercise
+Geben Sie die Axiome für einen Wahrscheinlichkeitsraum an.
+\vspace{8mm}
+
+\exercise
+Formulieren Sie das schwache Gesetz  der grossen Zahlen und erläutern Sie die Aussage.
+\vspace{8mm}
+
+\exercise
+Was versteht man unter einem Laplace-Experiment?
+\vspace{8mm}
+
+\exercise
+Erklären Sie die Aussage des zentralen Grenzwertsatzes anhand eines Beispiels.
+\vspace{8mm}
+
+\exercise
+
+\vspace{8mm}
+
+\end{document}
+
