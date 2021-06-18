@@ -48,7 +48,7 @@ die bedingte Wahrscheinlichkeit (von $A$ unter $B$).
 
 
 \subsection{Variation und Kombination}
-Die Gesamtanzahl $n$ der Objekte und die Anzahl $k$ der Objekte, die ausgewählt wurden.
+$n$ bezeichnet die Gesamtzahl der Objekte und $k$ die Anzahl der Objekte, die ausgewählt wurden.
 \begin{itemize}
 \item $\# Var_k^n(\Omega, m.W.)  = n^k$
 \item $\# Var_k^n(\Omega, o.W.)  = n_k = \frac{n!}{(n-k)!}$  
@@ -60,9 +60,8 @@ Die Gesamtanzahl $n$ der Objekte und die Anzahl $k$ der Objekte, die ausgewählt
 \subsection{Spamfilter / Satz von Bayes}
 
 \subsubsection{Satz der totalen Wahrscheinlichkeit}
-Mit dem Satz der totalen Wahrscheinlichkeit lässt sich die Wahrscheinlichkeit des Ereignisses A berechnen, wenn man nur die bedingte oder gemeinsame Wahrscheinlichkeit abhängig von einem zweiten Ereignis B gegeben hat. Manchmal ist auch vom so genannten Gesetz der totalen Wahrscheinlichkeit die Rede.
-Für eine Zerlegung.  \\
-
+Mit dem Satz der totalen Wahrscheinlichkeit lässt sich die Wahrscheinlichkeit des Ereignisses A berechnen, wenn man nur die bedingte Wahrscheinlichkeit abhängig von anderen Ereignissen aus der Grundmenge $\Omega$ gegeben hat. Hierbei muss die Vereinigung der anderen Ereignisse aber stets der Grundmenge $\Omega$ entsprechen (Zerlegung). Manchmal ist auch vom so genannten Gesetz der totalen Wahrscheinlichkeit die Rede.
+Für eine Zerlegung  \\
 $\Omega = \bigcup_{j=1}^{n} B_j, \text{ mit } B_i \cap B_k = \emptyset \text{ für } i \neq k $, gilt
 \begin{align*}
 & P(A ) = \sum_{j=1}^{n}  P(A \; | \;  B_j) \cdot P(B_j)
@@ -77,7 +76,7 @@ Für $A,B \in \mathcal{A}$ mit  $P(B) > 0$ gilt
 \end{align*}
 
 \subsubsection{Stochastische Unabhängigkeit}
-Die stochastische Unabhängikeit von Ereignissen impliziert, dass das Eintreten des einen keine Auswirkung auf die Wahrscheinlichkeit des Eintretens des anderen Ereignisses hat. Man nennt das Ereignis $A$ stochastisch unabhängig von dem Ereignis $B$, wenn die Wahrscheilichkeit $P(A)$ nicht davon Beeinflusst wird. Dabei ist egal, ob das zweite Ereignis eintritt oder nicht. \\
+Die stochastische Unabhängikeit von Ereignissen impliziert, dass das Eintreten des einen keine Auswirkung auf die Wahrscheinlichkeit des Eintretens des anderen Ereignisses hat. Man nennt das Ereignis $A$ stochastisch unabhängig vom Ereignis $B$, wenn die Wahrscheinlichkeit $P(A)$ nicht vom Eintreten des Ereignisses $B$ beeinflusst wird.\\
 
 Zwei Ereignisse $A,B$ heißen stochastisch unabhängig, falls
 \begin{align*}
@@ -117,7 +116,7 @@ $$ X^{-1} (A') \in \mathcal{A}$$
  ein Ereignis in $\mathcal{A}$ ist. Urbilder von Ereignissen sind also Ereignisse.
 
 \subsubsection{Messraum}
-In der Stochastik werden die Messräume auch teilweise Ereignisraum genannt, die messbaren Mengen heißen dann Ereignisse. Nach Wahl eines Wahrscheinlichkeitsmaßes handelt es sich dann um einen Wahrscheinlichkeitsraum.\\
+In der Stochastik werden die Messräume auch teilweise Ereignisraum genannt, die messbaren Mengen heißen dann Ereignisse. Nach Wahl eines geeigneten Wahrscheinlichkeitsmaßes $P$ handelt es sich dann um einen Wahrscheinlichkeitsraum.\\
 
 Ein Messraum ist ein Paar $(\Omega, \mathcal{A})$ bestehend aus einer Menge $\Omega$ und einer Sigma-Algebra $\mathcal{A} \subseteq 2^{\Omega}$.
 
@@ -127,7 +126,7 @@ Unter einer reellen Zufallsvariable verstehen wir eine Zufallsvariable
 & X : \Omega \to \mathbb{R}^n \\
 & X(\omega) := \biggl(X_1(\omega), \cdots , X_n(\omega)  \biggr) \; ,
 \end{align*}
-wobei $(\Omega, \mathcal{A}, P)$ ein Wahrscheinlichkeitsraum ist und $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$ der $\mathbb{R}^n$ zusammen mit der Borel'schen Sigma-Algebra ist.
+wobei $(\Omega, \mathcal{A}, P)$ ein Wahrscheinlichkeitsraum und das Tupel $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$ der Messraum mit $\mathbb{R}^n$ und der Borel'schen Sigma-Algebra ist.
 
 \pagebreak
 \subsection{Erwartungswert}
@@ -148,7 +147,7 @@ Sind $X,Y : \Omega \to \mathbb{R}^n$   reelle, integrierbare  Zufallsvariablen u
 \end{align*}
 
 \subsection{Varianz}
-Die Varianz ist ein Maß für die Streuung der Wahrscheinlichkeitsdichte um ihren Schwerpunkt. Mathematisch wird sie definiert als die mittlere quadratische Abweichung einer reellen Zufallsvariablen von ihrem Erwartungswert.\\
+Die Varianz ist ein Maß für die Streuung der Wahrscheinlichkeitsdichte um ihren Schwerpunkt (Erwartungswert). Mathematisch wird sie definiert als die mittlere quadratische Abweichung einer reellen Zufallsvariablen von ihrem Erwartungswert.\\
 
 Für eine reelle Zufallsvariable $X$ ist die Varianz definiert durch
 $$ \mathbb{V} (X) \; := \;  \mathbb{E}( (X - \mathbb{E}(X))^2) \;  = \; \mathbb{E}(X^2) -  \mathbb{E}(X)^2$$
@@ -167,8 +166,7 @@ Die Normalverteilung $N{(\mu,\sigma^2)}$ auf $\mathbb{R}$ ist definiert durch
 \text{Erwartungswert } & \mathbb{E}(X) = \mu \\
 \text{Varianz }& \mathbb{V}(X) = \sigma^2
 \end{align*}
-Die Varianz ist die quadratische Abweichung vom Erwartungswert. \\
-Die Dichtefunktion ist im Integral von $\int_{\Omega} f d \mu = 1$.
+Die Varianz ist die mittlere quadratische Abweichung vom Erwartungswert. \\
 
 \subsubsection{Verteilungsfunktion}
 Für eine reelle Zufallsvariable $X$ heißt 
@@ -179,7 +177,7 @@ Für eine reelle Zufallsvariable $X$ heißt
 Verteilungsfunktion von $X$.
 
 \subsubsection{Gleichverteilung}
-Gleichverteilung: Jedes Ereignis hat die geliche Wahrscheinlichkeit. \\
+Gleichverteilung: Jedes Ereignis hat die gleiche Wahrscheinlichkeit. \\
 Die Gleichverteilung $U{(a,b)}$ auf einem Intervall $(a,b) \subset \mathbb{R}$ ist definiert durch
 \begin{align*}
 & \text{Dichte: } f (x) : = \frac{1_{(a,b)}}{|b-a| } \\
