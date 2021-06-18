@@ -123,12 +123,12 @@ Sie geben eine Party und laden 10 Leute ein.
 
 \solution
 \begin{enumerate}[label=(\alph*)]
-\item Keiner setzt sich auf zwei Plätze gleichzeitig, daher gibt es keine Wiederholung. Die Reihenfolge macht einen Unterschied. Daher gibt es $10!= 3.628.800$ Möglichkeiten. 
+\item Keiner setzt sich auf zwei Plätze gleichzeitig, daher gibt es keine Wiederholung. Die Reihenfolge macht einen Unterschied. Daher gibt es $\binom{10!}{(10-10)!} = 10!= 3.628.800$ Möglichkeiten. 
 \item Niemand stößt mit sich selbst an, daher gibt es keine Wiederholungen. Die Reihenfolge spielt keine Rolle. Die Gläser klirren also $ \begin{pmatrix} 10 \\ 2\end{pmatrix} = 45$ mal.
 \end{enumerate}
 \vspace{8mm}
 
-
+\newpage
 \exercise
 Drei Bits werden über einen digitalen Nachrichtenkanal übertragen. Jedes Bit kann falsch oder richtig empfangen werden.
 \begin{enumerate}[label=(\alph*)]
@@ -141,9 +141,10 @@ Drei Bits werden über einen digitalen Nachrichtenkanal übertragen. Jedes Bit k
 \solution
 \begin{enumerate}[label=(\alph*)]
 \item $\Omega = \{ (b_1, b_2, b_3) \; | \;  b_i \in \{ V (\text{verfälscht}), R (\text{richtig}) \} \land i \in \{1,2,3\} \}$.\\
-$\Rightarrow \Omega = \{ (V,V,V), (V,V,R), (V,R,V), (V,R,R), (R,V,V), (R,V,R), (R,R,V), (R,R,R) \}$
+$\Rightarrow \Omega = \{ (V,V,V), (V,V,R), (V,R,V), (V,R,R), \\(R,V,V), (R,V,R), (R,R,V), (R,R,R) \}$
 \item $| \Omega | = Var_3^2(\Omega, m.W) =  2^3 = 8$.
-\item $A_1 = \{ (V, b_2, b_3) \; | \;  b_i \in \{ V,R  \}  \land i \in \{2,3\} \} = \{ (V,R,R), (V,V,V), (V,R,V), (V,V,R) ) \}$.
+\item $A_1 = \{ (V, b_2, b_3) \; | \;  b_i \in \{ V,R  \}  \land i \in \{2,3\} \} \\
+= \{ (V,R,R), (V,V,V), (V,R,V), (V,V,R) ) \}$.
 \end{enumerate}
 \vspace{8mm}
 
@@ -216,7 +217,7 @@ Gegeben: $P(A) = 0,05; \; P(A \cap B) = 0,01; \; P(A^c \cap B) = 0,03$.
 \end{enumerate}
 \vspace{8mm}
 
-
+\newpage
 \exercise
 In einer Fabrik werden die produzierten Werkstücke vor der Auslieferung überprüft. Hierfür werden für jedes Werkstück   zwei Funktionstest durchgeführt.  Die Wahrscheinlichkeit, dass ein Werkstück beide Tests besteht, betrage $0,55$. Die Wahrscheinlichkeit, dass ein Werkstück  den ersten Test besteht betrage $0,72$. 
 \begin{enumerate}[label=(\alph*)]
@@ -252,7 +253,7 @@ Die Wahrscheinlichkeit für  Test $T_1$ und Test $T_2$ ist $P(T_1 \cap T_2) = 0.
 \end{enumerate}
 \vspace{8mm}
 
-
+\newpage
 \exercise
 In einer Urne befinden sich 4 schwarze und 6 weiße Kugeln.
 Es werden nacheinander zwei Kugeln gezogen, wobei die erste Kugel zurückgelegt wird, bevor die Zweite gezogen wird.
@@ -282,7 +283,7 @@ Beim Versuch ohne Zurücklegen gilt für die bedingten Wahrscheinlichkeiten
 Damit handelt es sich um keine stochastisch unabhängigen Ereignisse.
 \vspace{8mm}
 
-
+\newpage
 \exercise
 Geben Sie eine Konstante $c  \in \mathbb{R}$ an, so dass die Funktion 
 \begin{align*}
@@ -292,8 +293,19 @@ eine Dichte auf $\mathbb{R}$ definiert.
 \vspace{4mm}
 
 \solution
-Die Integration über eine Dichte muss $1$ ergeben.  
-$\int_0^1 x^2 \; dx = \frac{1}{3} \Rightarrow c = 3$.
+Für eine Dichte $f$ auf $\mathbb{R}$ muss gelten: $\int_{\mathbb{R}} f \, d\mu = 1$.\\
+\begin{align*}
+    & \int_{\mathbb{R}} f \, d \mu = 1\\
+    & \Leftrightarrow  \int_{0}^{1} f \, d \mu = 1 \quad \text{, da } f(x) = 0 \text{ für } x \notin [0,1]\\
+    & \Leftrightarrow \int_{0}^{1} cx^2 \, dx = 1\\
+    & \Leftrightarrow \frac{1}{3}c = 1\\
+    & \Leftrightarrow c = 3
+\end{align*}
+Also ist
+\begin{align*}
+f(x) = \begin{cases} 3x^2 \text{ für }  0\leq x \leq 1 \\ 0 \text{ sonst}\end{cases}
+\end{align*}
+eine Dichte auf $\mathbb{R}$.
 \vspace{8mm}
 
 
@@ -306,8 +318,19 @@ ein Dichte auf $\mathbb{R}$ definiert.
 \vspace{4mm}
 
 \solution
-Die Integration über eine Dichte muss $1$ ergeben.  
-$\int_0^2 x^3 \; dx = \frac{1}{4} \cdot 16 = 4 \Rightarrow c = \frac{1}{4}$.
+Für eine Dichte $f$ auf $\mathbb{R}$ muss gelten: $\int_{\mathbb{R}} f \, d\mu = 1$.\\
+\begin{align*}
+    & \int_{\mathbb{R}} f \, d \mu = 1\\
+    & \Leftrightarrow  \int_{0}^{2} f \, d \mu = 1 \quad \text{, da } f(x) = 0 \text{ für } x \notin [0,2]\\
+    & \Leftrightarrow \int_{0}^{2} cx^3 \, dx = 1\\
+    & \Leftrightarrow 4c = 1\\
+    & \Leftrightarrow c = \frac{1}{4}
+\end{align*}
+Also ist
+\begin{align*}
+f(x) = \begin{cases} \frac{1}{4}x^3 \text{ für }  0\leq x \leq 2 \\ 0 \text{ sonst}\end{cases}
+\end{align*}
+eine Dichte auf $\mathbb{R}$.
 \vspace{8mm}
 
 
@@ -364,6 +387,9 @@ Seien $\{X_i  \}_i: \Omega \to \mathbb{R}$ unabhängige, reelle Zufallsvariablen
 P \bigl  ( \bigl | \frac{1}{n} \sum_{i=1}^{n} X_i - \mu \bigr |  \geq \epsilon \bigr) \leq \frac{\sigma}{ n \cdot \epsilon^2} \; \; \underset{n \to \infty}{\longrightarrow} 0
 \end{align*}
 Das schwache Gesetz der großen Zahlen besagt, dass das arithmetische Mittel  einer großen Stichprobe einer Zufallsvariable mit einer beliebig kleinen, vorgegebenen Wahrscheinlichkeit dem Erwartungswert der Zufallsvariable entspricht.
+
+\textbf{Eigene Alternative:}\\
+Werden $n$ unabhängige, aber ansonsten gleichartige Versuche durchgeführt, so liegt der Mittelwert der Ergebnisse bei großem $n$ mit hoher Wahrscheinlichkeit nahe beim Erwartungswert.
 \vspace{8mm}
 
 \exercise
@@ -379,7 +405,10 @@ Erklären Sie die Aussage des zentralen Grenzwertsatzes anhand eines Beispiels.
 \vspace{4mm}
 
 \solution
-Wenn man den Durchschnitt von $n$ Messungen eines verrauschten Sensor betrachtet, so kann man wegen dem zentralen Grenzwertsatz näherungsweise Annehmen, dass die zugehörige Verteilung Normalverteilt ist.  
+Wenn man den Durchschnitt von $n$ Messungen eines verrauschten Sensor betrachtet, so kann man wegen dem zentralen Grenzwertsatz näherungsweise Annehmen, dass die zugehörige Verteilung Normalverteilt ist.
+
+\textbf{Eigene Alternative:}\\
+Die Summe von stochastisch unabhängigen, identisch verteilten Zufallsvariablen ist näherungsweise normalverteilt. Beispiel: Die Wahrscheinlichkeit der Augensumme von $n \to \infty$ Würfeln ist näherungsweise normalverteilt, da jeder Würfel stochastisch unabhängig und gleichverteilt ist.
 \vspace{4mm}
 
 
