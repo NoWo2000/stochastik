@@ -13,7 +13,7 @@
 
 \subsection{Wahrscheinlichkeitsraum}
 
-\subsubsection{Definition}
+\subsubsection{{Definition}}
 Ein Wahrscheinlichkeitsraum ist ein Tripel $(\Omega, \mathcal{A}, P)$ bestehend aus der Grundmenge $\Omega$, einer $\sigma$-Algebra $\mathcal{A} \subseteq  2^{\Omega}$ und einer Abbildung
 $P : \mathcal{A} \to [0,1]$
 \begin{align*}
@@ -24,7 +24,7 @@ Die Elemente von $\Omega$ werden elementare Ereignisse und die von $\mathcal{A}$
 Die Abbildung $P$ wird Wahrscheinlichkeitsmaß genannt.
 
 \subsubsection{$\sigma$-Algebra}
-Es sei $\Omega$ eine Menge und $\mathcal{A} \subset  2^{\Omega}$ ein System von Teilmengen (= Ereignissen). $\mathcal{A}$ heißt $\sigma$-Algebra (Sigma-Algebra) falls gilt:
+Es sei $\Omega$ eine Menge und $\mathcal{A} \subseteq  2^{\Omega}$ ein System von Teilmengen (= Ereignissen). $\mathcal{A}$ heißt $\sigma$-Algebra (Sigma-Algebra) falls gilt:
 \begin{align*}
 & (i) \; \Omega \in \mathcal{A} \\
 & (ii) \; A \in \mathcal{A} \Rightarrow A^c \in \mathcal{A} \\
@@ -48,6 +48,7 @@ die bedingte Wahrscheinlichkeit (von $A$ unter $B$).
 
 
 \subsection{Variation und Kombination}
+Die Gesamtanzahl $n$ der Objekte und die Anzahl $k$ der Objekte, die ausgewählt wurden.
 \begin{itemize}
 \item $\# Var_k^n(\Omega, m.W.)  = n^k$
 \item $\# Var_k^n(\Omega, o.W.)  = n_k = \frac{n!}{(n-k)!}$  
@@ -59,18 +60,25 @@ die bedingte Wahrscheinlichkeit (von $A$ unter $B$).
 \subsection{Spamfilter / Satz von Bayes}
 
 \subsubsection{Satz der totalen Wahrscheinlichkeit}
-Für eine Zerlegung  $\Omega = \bigcup_{j=1}^{n} B_j, \text{ mit } B_i \cap B_k = \emptyset \text{ für } i \neq k $, gilt
+Mit dem Satz der totalen Wahrscheinlichkeit lässt sich die Wahrscheinlichkeit des Ereignisses A berechnen, wenn man nur die bedingte oder gemeinsame Wahrscheinlichkeit abhängig von einem zweiten Ereignis B gegeben hat. Manchmal ist auch vom so genannten Gesetz der totalen Wahrscheinlichkeit die Rede.
+Für eine Zerlegung.  \\
+
+$\Omega = \bigcup_{j=1}^{n} B_j, \text{ mit } B_i \cap B_k = \emptyset \text{ für } i \neq k $, gilt
 \begin{align*}
 & P(A ) = \sum_{j=1}^{n}  P(A \; | \;  B_j) \cdot P(B_j)
 \end{align*}
 
 \subsubsection{Satz von Bayes}
+Der Satz von Bayes ist einer der wichtigsten Sätze der Wahrscheinlichkeitrechnung. Er besagt, dass ein Verhältnis zwischen der bedingten Wahrscheinlichkeit zweier Ereignisse $P(A | B)$ und der umgekehrten Form $P(B | A)$ besteht. \\
+
 Für $A,B \in \mathcal{A}$ mit  $P(B) > 0$ gilt
 \begin{align*}
 & P(A \; | \;  B) = \frac{P(B \; | \; A) \cdot P(A)} {P(B)} \\
 \end{align*}
 
 \subsubsection{Stochastische Unabhängigkeit}
+Die stochastische Unabhängikeit von Ereignissen impliziert, dass das Eintreten des einen keine Auswirkung auf die Wahrscheinlichkeit des Eintretens des anderen Ereignisses hat. Man nennt das Ereignis $A$ stochastisch unabhängig von dem Ereignis $B$, wenn die Wahrscheilichkeit $P(A)$ nicht davon Beeinflusst wird. Dabei ist egal, ob das zweite Ereignis eintritt oder nicht. \\
+
 Zwei Ereignisse $A,B$ heißen stochastisch unabhängig, falls
 \begin{align*}
 P(A \cap B) = P(A) \cdot P(B)
@@ -109,7 +117,9 @@ $$ X^{-1} (A') \in \mathcal{A}$$
  ein Ereignis in $\mathcal{A}$ ist. Urbilder von Ereignissen sind also Ereignisse.
 
 \subsubsection{Messraum}
-Ein Messraum ist ein Paar $(\Omega, \mathcal{A})$ bestehend aus einer Menge $\Omega$ und einer Sigma-Algebra $\mathcal{A} \subset 2^{\Omega}$.
+In der Stochastik werden die Messräume auch teilweise Ereignisraum genannt, die messbaren Mengen heißen dann Ereignisse. Nach Wahl eines Wahrscheinlichkeitsmaßes handelt es sich dann um einen Wahrscheinlichkeitsraum.\\
+
+Ein Messraum ist ein Paar $(\Omega, \mathcal{A})$ bestehend aus einer Menge $\Omega$ und einer Sigma-Algebra $\mathcal{A} \subseteq 2^{\Omega}$.
 
 \subsubsection{Reelle Zufallsvariable}
 Unter einer reellen Zufallsvariable verstehen wir eine Zufallsvariable 
@@ -117,7 +127,7 @@ Unter einer reellen Zufallsvariable verstehen wir eine Zufallsvariable
 & X : \Omega \to \mathbb{R}^n \\
 & X(\omega) := \biggl(X_1(\omega), \cdots , X_n(\omega)  \biggr) \; ,
 \end{align*}
-wobei $(\Omega, \mathcal{A}, P)$ ein Wahrscheinlichkeitsraum und das Tupel $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$ der Messraum mit $\mathbb{R}^n$ und der Borel'schen Sigma-Algebra ist.
+wobei $(\Omega, \mathcal{A}, P)$ ein Wahrscheinlichkeitsraum ist und $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$ der $\mathbb{R}^n$ zusammen mit der Borel'schen Sigma-Algebra ist.
 
 \pagebreak
 \subsection{Erwartungswert}
@@ -138,6 +148,8 @@ Sind $X,Y : \Omega \to \mathbb{R}^n$   reelle, integrierbare  Zufallsvariablen u
 \end{align*}
 
 \subsection{Varianz}
+Die Varianz ist ein Maß für die Streuung der Wahrscheinlichkeitsdichte um ihren Schwerpunkt. Mathematisch wird sie definiert als die mittlere quadratische Abweichung einer reellen Zufallsvariablen von ihrem Erwartungswert.\\
+
 Für eine reelle Zufallsvariable $X$ ist die Varianz definiert durch
 $$ \mathbb{V} (X) \; := \;  \mathbb{E}( (X - \mathbb{E}(X))^2) \;  = \; \mathbb{E}(X^2) -  \mathbb{E}(X)^2$$
 
@@ -152,9 +164,11 @@ Die Normalverteilung $N{(\mu,\sigma^2)}$ auf $\mathbb{R}$ ist definiert durch
 \end{align*}
 \textbf{Erwartungswert und Varianz bei $X \sim N(\mu, \sigma^2)$:}
 \begin{align*}
-& \mathbb{E}(X) = \mu \\
-& \mathbb{V}(X) = \sigma^2
+\text{Erwartungswert } & \mathbb{E}(X) = \mu \\
+\text{Varianz }& \mathbb{V}(X) = \sigma^2
 \end{align*}
+Die Varianz ist die quadratische Abweichung vom Erwartungswert. \\
+Die Dichtefunktion ist im Integral von $\int_{\Omega} f d \mu = 1$.
 
 \subsubsection{Verteilungsfunktion}
 Für eine reelle Zufallsvariable $X$ heißt 
@@ -165,12 +179,14 @@ Für eine reelle Zufallsvariable $X$ heißt
 Verteilungsfunktion von $X$.
 
 \subsubsection{Gleichverteilung}
+Gleichverteilung: Jedes Ereignis hat die geliche Wahrscheinlichkeit. \\
 Die Gleichverteilung $U{(a,b)}$ auf einem Intervall $(a,b) \subset \mathbb{R}$ ist definiert durch
 \begin{align*}
 & \text{Dichte: } f (x) : = \frac{1_{(a,b)}}{|b-a| } \\
 & \text{Verteilung: } F (x) =  P_f( (-\infty, x))  =  \int_{-\infty}^{x} \frac{1_{(a,b)}}{|b-a|} dt\\\
 & = \begin {cases} 0 \text{ für } x \leq a \\   \frac{x-a}{|b-a|} \text{ für } a \leq x \leq b \\ 1 \text{ für }  x \geq b \\  \end{cases}
 \end{align*}
+
 \textbf{Erwartungswert und Varianz bei $X \sim U(a,b)$:}
 \begin{align*}
 & \mathbb{E}(X) = \frac{a+b}2 \\
