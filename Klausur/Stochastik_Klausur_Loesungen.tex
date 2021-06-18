@@ -57,7 +57,7 @@ Beim Lottospiel werden ohne Zurücklegen $6$ Zahlen aus $49$ gezogen. Berechnen 
 \item Mindestens $3$ richtige Gewinnzahlen zu tippen.
 \item Alle $6$ Gewinnzahlen sind gerade.
 \end{enumerate}
-\vspace{8mm}
+\vspace{4mm}
 
 \solution
  Der Grundraum beim Lottospiel ist eine Kombination ohne Beachtung der Reihenfolge
@@ -98,7 +98,7 @@ Wie viele Beleuchtungsarten gibt es
 \item wenn fünf Lampen brennen sollen?
 \item wenn mindestens fünf Lampen brennen sollen?
 \end{enumerate}
-\vspace{8mm}
+\vspace{4mm}
 
 \solution
 Für die Auswahl von $n$  Lampen aus $N= 8$  ohne Beachtung der Reihenfolge gibt es 
@@ -119,6 +119,13 @@ Sie geben eine Party und laden 10 Leute ein.
 \item Wie viele Möglichkeiten gibt es, die 10 Gäste an einen Tisch mit 10 Stühlen zu setzen?
 \item  Jeder Gast soll mit jedem anderen Gast anstoßen. Wie oft klirren die Gläser?
 \end{enumerate}
+\vspace{4mm}
+
+\solution
+\begin{enumerate}[label=(\alph*)]
+\item Keiner setzt sich auf zwei Plätze gleichzeitig, daher gibt es keine Wiederholung. Die Reihenfolge macht einen Unterschied. Daher gibt es $10!= 3.628.800$ Möglichkeiten. 
+\item Niemand stößt mit sich selbst an, daher gibt es keine Wiederholungen. Die Reihenfolge spielt keine Rolle. Die Gläser klirren also $ \begin{pmatrix} 10 \\ 2\end{pmatrix} = 45$ mal.
+\end{enumerate}
 \vspace{8mm}
 
 
@@ -129,11 +136,12 @@ Drei Bits werden über einen digitalen Nachrichtenkanal übertragen. Jedes Bit k
 \item Wie viele Elemente besitzt $\Omega$?
 \item Es sei $A_i := \{ \text{ i-tes Bit ist verfälscht}\}$. Geben Sie das Ereignis $A_1$ an.
 \end{enumerate}
-\vspace{8mm}
+\vspace{4mm}
 
 \solution
 \begin{enumerate}[label=(\alph*)]
-\item $\Omega = \{ (b_1, b_2, b_3) \; | \;  b_i \in \{ V (\text{verfälscht}), R (\text{richtig}) \} \land i \in \{1,2,3\} \}$.
+\item $\Omega = \{ (b_1, b_2, b_3) \; | \;  b_i \in \{ V (\text{verfälscht}), R (\text{richtig}) \} \land i \in \{1,2,3\} \}$.\\
+$\Rightarrow \Omega = \{ (V,V,V), (V,V,R), (V,R,V), (V,R,R), (R,V,V), (R,V,R), (R,R,V), (R,R,R) \}$
 \item $| \Omega | = Var_3^2(\Omega, m.W) =  2^3 = 8$.
 \item $A_1 = \{ (V, b_2, b_3) \; | \;  b_i \in \{ V,R  \}  \land i \in \{2,3\} \} = \{ (V,R,R), (V,V,V), (V,R,V), (V,V,R) ) \}$.
 \end{enumerate}
@@ -146,12 +154,12 @@ Es sei $\Omega = \{ 1,2,3,4\}$.
 \item Welche der folgenden Mengen sind $\sigma$-Algebren?
 \begin{align*}
 & A =  \{ \emptyset,  \Omega  \} \\
-& B=  \{ \emptyset,  \Omega , \{ 1\}, \{ 2,3\}, \{ 4\} \}  \\
-& C=  \{ \emptyset,  \Omega ,  \{ 1,2\}, \{ 3, 4\} \}  
+& B =  \{ \emptyset,  \Omega , \{ 1\}, \{ 2,3\}, \{ 4\} \}  \\
+& C =  \{ \emptyset,  \Omega ,  \{ 1,2\}, \{ 3, 4\} \}  
 \end{align*}
 \item Geben Sie die kleinste Sigma-Algebra über $\Omega$ an, in der die Mengen $ \{ 1\}$ und $ \{ 2\}$ enthalten sind.
 \end{enumerate}
-\vspace{8mm}
+\vspace{4mm}
 
 \solution
 \begin{enumerate}[label=(\alph*)]
@@ -186,14 +194,22 @@ Bei einer Qualitätskontrolle können Werkstücke zwei Fehler haben, den Fehler 
 \item Mit welcher Wahrscheinlichkeit ist ein Werkstück fehlerfrei, falls es den Fehler $B$ nicht besitzt?
 \item Sind die Ereignisse ''Werkstück hat Fehler $A$''  und ''Werkstück hat Fehler $B$'' unabhängig?
 \end{enumerate}
-\vspace{8mm}
+\vspace{4mm}
 
 \solution
-Gegeben: $P(A) = 0,05; P(A \cap B) = 0,01; P(A^c \cap B) = 0,03$.
+Gegeben: $P(A) = 0,05; \; P(A \cap B) = 0,01; \; P(A^c \cap B) = 0,03$.
 \begin{enumerate}[label=(\alph*)]
 \item $P(B) = P(A \cap B) + P(A^c \cap B) = 0,01 + 0,03 = 0,04$.
-\item $ \{ \text{Werkstück ist fehlerhaft} \} = A \cup B$.  $$P(A \cup B) = P(A) + P(B) - P(A \cap B)= 0,05 + 0,04 -0,01 = 0,08$$
-\\ $ \{ \text{Werkstück ist fehlerfrei} \} = A^c \cap B^c$.  $$P(A^c \cap B^c) = P((A \cup B)^c) = 1 - P(A \cup B)= 0,92$$
+\item $ \{ \text{Werkstück ist fehlerhaft} \} = A \cup B$.
+\begin{align*}
+    & P(A \cup B) \\
+    & = P((A \cap B) \cup (A \cap B^c) \cup (B \cap A^c))\\
+    & = P((A \cap B) \cup (A \cap B^c)) + P(B \cap A^c)\\
+    & = P(A) + P(B \cap A^c) \\
+    & = 0,05 + 0,03 = 0,08\\
+    & \{ \text{Werkstück ist fehlerfrei} \} = A^c \cap B^c.\\
+    & P(A^c \cap B^c) = P((A \cup B)^c) = 1 - P(A \cup B)= 0,92
+\end{align*}
 \item $P(B | A) = \frac{P(B \cap A)}{P(A)} = \frac{0,01}{0,05} = 0,2$.
 \item $P(A^c | B^c) = \frac{P(A^c \cap B^c)}{P(B^c)} = \frac{P(A^c \cap B^c)}{1 - P(B)} = \frac{0,92}{0,96} \approx 0,9583$.
 \item $0,01 = P(A \cap B) \neq P(A) \cdot P(B) = 0,05 \cdot 0,04 = 0,002$ $$ \Rightarrow A \text{ und } B \text{ sind nicht unabhängig.}$$
@@ -207,16 +223,14 @@ In einer Fabrik werden die produzierten Werkstücke vor der Auslieferung überpr
 \item Berechnen Sie die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht, wenn er bereits den ersten bestanden hat.
 \item Angenommen, die beiden Tests sind stochastisch unabhängig. Wie hoch ist dann die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht?
 \end{enumerate}
-\vspace{8mm}
+\vspace{4mm}
 
 \solution
 Die Wahrscheinlichkeit für  Test $T_1$  ist $P(T_1) = 0,72$.\\
 Die Wahrscheinlichkeit für  Test $T_1$ und Test $T_2$ ist $P(T_1 \cap T_2) = 0,55$.
 \begin{enumerate}[label=(\alph*)]
 \item $P(T_2 | T_1) = \frac{P(T_1 \cap T_2)}{P(T_1)} = \frac{0,55} {0,72} \approx 0,7639$.
-
 \item Sind $T_1$ und $T_2$ unabhängig, gilt  $P(T_2) = P(T_2 | T_1) = 0,7639$.
-
 \end{enumerate}
 \vspace{8mm}
 
@@ -227,6 +241,15 @@ In einer Fabrik werden die produzierten Werkstücke vor der Auslieferung überpr
 \item Berechnen Sie die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht, wenn er bereits den ersten bestanden hat.
 \item Angenommen, die beiden Tests sind stochastisch unabhängig. Wie hoch ist dann die Wahrscheinlichkeit, dass ein Werkstück den zweiten Test besteht?
 \end{enumerate}
+\vspace{4mm}
+
+\solution
+Die Wahrscheinlichkeit für  Test $T_1$  ist $P(T_1) = 0.6$.\\
+Die Wahrscheinlichkeit für  Test $T_1$ und Test $T_2$ ist $P(T_1 \cap T_2) = 0.5$.
+\begin{enumerate}[label=(\alph*)]
+\item $P(T_2 | T_1) = \frac{P(T_1 \cap T_2)}{P(T_1)} = \frac{0.5} {0.6} \approx 0,83$.
+\item Sind $T_1$ und $T_2$ unabhängig, gilt  $P(T_2) = P(T_2 | T_1) = 0.83$.
+\end{enumerate}
 \vspace{8mm}
 
 
@@ -235,12 +258,28 @@ In einer Urne befinden sich 4 schwarze und 6 weiße Kugeln.
 Es werden nacheinander zwei Kugeln gezogen, wobei die erste Kugel zurückgelegt wird, bevor die Zweite gezogen wird.
 Zeigen Sie, dass das Ziehen einer schwarzen oder weißen Kugel im zweiten Zug stochastisch unabhängig davon ist, welche Kugel im ersten Zug gezogen wurde.
 Gilt das auch, wenn nach dem ersten Zug die Kugel nicht zurückgelegt wird?
-\vspace{8mm}
+\vspace{4mm}
 
 \solution
 
-Beim Versuch mit Zurücklegen sind die bedingten Wahrscheinlichkeiten $P(W|S) = P(W) = \frac{6}{10}$ und $P(S |W) = P(S  ) = \frac{4}{10}$ gleich und somit stochastisch unabhängige Ereignisse.\\
-Beim Versuch ohne Zurücklegen sind die bedingten Wahrscheinlichkeiten $ \frac{6}{9} = P(W|S) \neq P(W) =  \frac{5}{9}$  nicht gleich und somit keine stochastisch unabhängigen Ereignisse.
+Beim Versuch mit Zurücklegen gilt für die bedingten Wahrscheinlichkeiten 
+\begin{align*}
+    & P(ZW|ES) = \frac{P(ZW \cap ES)}{P(ES)} = \frac{\frac{4}{10} \cdot \frac{6}{10}}{\frac{4}{10}} = \frac{3}{5}\\
+    & = P(ZW) = \frac{6}{10} \cdot \frac{6}{10} + \frac{4}{10} \cdot \frac{6}{10} = \frac{3}{5}\\
+    & \text{ebenso wie}\\
+    & P(ZS|EW) = \frac{P(ZS \cap EW)}{P(EW)} = \frac{\frac{6}{10} \cdot \frac{4}{10}}{\frac{6}{10}} = \frac{2}{5}\\
+    & = P(ZS) = \frac{4}{10} \cdot \frac{6}{10} + \frac{4}{10} \cdot \frac{4}{10} = \frac{2}{5} \text{.}
+\end{align*}
+Damit handelt es sich um stochastisch unabhängige Ereignisse.\\
+Beim Versuch ohne Zurücklegen gilt für die bedingten Wahrscheinlichkeiten
+\begin{align*}
+    & P(ZW|ES) = \frac{P(ZW \cap ES)}{P(ES)} = \frac{\frac{4}{10} \cdot \frac{6}{9}}{\frac{4}{10}} = \frac{2}{3}\\
+    & \neq P(ZW) = \frac{6}{10} \cdot \frac{5}{9} + \frac{4}{10} \cdot \frac{6}{9} = \frac{3}{5}\\
+    & \text{ebenso wie}\\
+    & P(ZS|EW) = \frac{P(ZS \cap EW)}{P(EW)} = \frac{\frac{6}{10} \cdot \frac{4}{9}}{\frac{6}{10}} = \frac{4}{9}\\
+    & \neq P(ZS) = \frac{6}{10} \cdot \frac{4}{9} + \frac{4}{10} \cdot \frac{3}{9} = \frac{2}{5} \text{.}
+\end{align*}
+Damit handelt es sich um keine stochastisch unabhängigen Ereignisse.
 \vspace{8mm}
 
 
@@ -250,6 +289,11 @@ Geben Sie eine Konstante $c  \in \mathbb{R}$ an, so dass die Funktion
 f(x) = \begin{cases} c x^2 \text{ für }  0\leq x \leq 1 \\ 0 \text{ sonst}\end{cases}
 \end{align*}
 eine Dichte auf $\mathbb{R}$ definiert.
+\vspace{4mm}
+
+\solution
+Die Integration über eine Dichte muss $1$ ergeben.  
+$\int_0^1 x^2 \; dx = \frac{1}{3} \Rightarrow c = 3$.
 \vspace{8mm}
 
 
@@ -259,6 +303,11 @@ Geben Sie eine Konstante $c  \in \mathbb{R}$ an, so dass die Funktion
 f(x) = \begin{cases} c x^3 \text{ für }  0\leq x \leq 2 \\ 0 \text{ sonst}\end{cases}
 \end{align*}
 ein Dichte auf $\mathbb{R}$ definiert.
+\vspace{4mm}
+
+\solution
+Die Integration über eine Dichte muss $1$ ergeben.  
+$\int_0^2 x^3 \; dx = \frac{1}{4} \cdot 16 = 4 \Rightarrow c = \frac{1}{4}$.
 \vspace{8mm}
 
 
@@ -268,6 +317,12 @@ Berechnen Sie den Erwartungswert der Zufallsvariablen
 \begin{align*}
 Y = X_1 \cdot (X_2 - X_1)
 \end{align*} 
+\vspace{4mm}
+
+\solution
+Gleichverteilung auf  $[0,1] \Rightarrow  \mathbb{E}(X_1) =  \mathbb{E}(X_2) = \frac{1}{2}$ und $ \mathbb{E}(X_1^2) = \frac{1}{3}$.\\
+Da $X_1$ und $X_2$ unabhängig $\Rightarrow \mathbb{E}(X_1 X_2) =  \mathbb{E}(X_1)  \mathbb{E}(X_2)  = \frac{1}{4}$.\\
+Damit ist $$\mathbb{E}(Y) = \mathbb{E}( X_1 \cdot (X_2 - X_1)) \; = \mathbb{E}( X_1 X_2 - X_1^2)  = \mathbb{E}( X_1 X_2) - \mathbb{E}(X_1^2)   =  \frac{1}{4} - \frac{1}{3} = -\frac{1}{12}$$
 \vspace{8mm}
 
 
@@ -277,27 +332,55 @@ Berechnen Sie den Erwartungswert der Zufallsvariablen
 \begin{align*}
 Y = 2 \cdot X_1 \cdot X_2 + X_1^2
 \end{align*} 
+\vspace{4mm}
+
+\solution
+Gleichverteilung auf  $[0,2] \Rightarrow  \mathbb{E}(X_1) =  \mathbb{E}(X_2) = 1$  und $ \mathbb{E}(X_1^2) = \frac{4}{3}$.\\
+Da $X_1$ und $X_2$ unabhängig $\Rightarrow \mathbb{E}(X_1 X_2) =  \mathbb{E}(X_1)  \mathbb{E}(X_2)  = 1$.  Damit ist $$\mathbb{E}(Y) = \mathbb{E}(  2 \cdot X_1 \cdot X_2 + X_1^2) \; = \mathbb{E}(2 \cdot  X_1 X_2) + \mathbb{E}(X_1^2) =  2 \cdot \mathbb{E}(  X_1 X_2) +  \mathbb{E}(X_1^2) =   2 + \frac{4}{3} = \frac{10}{3}$$. 
 \vspace{8mm}
 
 
 \exercise
 Geben Sie die Axiome für einen Wahrscheinlichkeitsraum an.
+\vspace{4mm}
+
+\solution
+Ein Wahrscheinlichkeitsraum ist ein Tripel $(\Omega, \mathcal{A}, P) $ bestehend aus der Grundmenge $\Omega  $, einer $\sigma$-Algebra $\mathcal{A} \subset  \mathcal{P}(\Omega)$ und einer Abbildung
+$P : \mathcal{A} \to [0,1]$
+\begin{align*}
+(i) & \; P(\Omega) = 1\\
+(ii) & \;  P \biggl(  \bigcup_i A_i  \biggr) = \sum_i P(A_i), \text{ mit } A_i \cap A_j = \emptyset \text{ für } i \neq j
+\end{align*}
 \vspace{8mm}
 
 
 \exercise
-Formulieren Sie das schwache Gesetz  der grossen Zahlen und erläutern Sie die Aussage.
-\vspace{8mm}
+Formulieren Sie das schwache Gesetz  der großen Zahlen und erläutern Sie die Aussage.
+\vspace{4mm}
 
+\solution
+Seien $\{X_i  \}_i: \Omega \to \mathbb{R}$ unabhängige, reelle Zufallsvariablen mit $\mathbb{E}(X_i) = \mu < \infty$ und $\mathbb{V}(X_i) = \sigma < \infty$. Dann gilt:
+\begin{align*}
+P \bigl  ( \bigl | \frac{1}{n} \sum_{i=1}^{n} X_i - \mu \bigr |  \geq \epsilon \bigr) \leq \frac{\sigma}{ n \cdot \epsilon^2} \; \; \underset{n \to \infty}{\longrightarrow} 0
+\end{align*}
+Das schwache Gesetz der großen Zahlen besagt, dass das arithmetische Mittel  einer großen Stichprobe einer Zufallsvariable mit einer beliebig kleinen, vorgegebenen Wahrscheinlichkeit dem Erwartungswert der Zufallsvariable entspricht.
+\vspace{8mm}
 
 \exercise
 Was versteht man unter einem Laplace-Experiment?
-\vspace{8mm}
+\vspace{4mm}
 
+\solution
+Man spricht von einem Laplace-Experiment, wenn der Ereignisraum $\Omega$ endlich viele Elemente $\#\Omega$ und ein Ereignis $A \subset \Omega$ die Wahrscheinlichkeit $P(A) = \frac{\#A}{\#\Omega}$ hat.
+\vspace{8mm}
 
 \exercise
 Erklären Sie die Aussage des zentralen Grenzwertsatzes anhand eines Beispiels.
-\vspace{8mm}
+\vspace{4mm}
+
+\solution
+Wenn man den Durchschnitt von $n$ Messungen eines verrauschten Sensor betrachtet, so kann man wegen dem zentralen Grenzwertsatz näherungsweise Annehmen, dass die zugehörige Verteilung Normalverteilt ist.  
+\vspace{4mm}
 
 
 \end{document}

@@ -14,7 +14,7 @@
 \subsection{Wahrscheinlichkeitsraum}
 
 \subsubsection{Definition}
-Ein Wahrscheinlichkeitsraum ist ein Tripel $(\Omega, \mathcal{A}, P)$ bestehend aus der Grundmenge $\Omega$, einer $\sigma$-Algebra $\mathcal{A} \subseteq  \mathcal{P}(\Omega)$ und einer Abbildung
+Ein Wahrscheinlichkeitsraum ist ein Tripel $(\Omega, \mathcal{A}, P)$ bestehend aus der Grundmenge $\Omega$, einer $\sigma$-Algebra $\mathcal{A} \subseteq  2^{\Omega}$ und einer Abbildung
 $P : \mathcal{A} \to [0,1]$
 \begin{align*}
 (i) & \; P(\Omega) = 1 \\
@@ -24,7 +24,7 @@ Die Elemente von $\Omega$ werden elementare Ereignisse und die von $\mathcal{A}$
 Die Abbildung $P$ wird Wahrscheinlichkeitsmaß genannt.
 
 \subsubsection{$\sigma$-Algebra}
-Es sei $\Omega$ eine Menge und $\mathcal{A} \subset  \mathcal{P}(\Omega)$ ein System von Teilmengen (= Ereignissen). $\mathcal{A}$ heißt $\sigma$-Algebra (Sigma-Algebra) falls gilt:
+Es sei $\Omega$ eine Menge und $\mathcal{A} \subset  2^{\Omega}$ ein System von Teilmengen (= Ereignissen). $\mathcal{A}$ heißt $\sigma$-Algebra (Sigma-Algebra) falls gilt:
 \begin{align*}
 & (i) \; \Omega \in \mathcal{A} \\
 & (ii) \; A \in \mathcal{A} \Rightarrow A^c \in \mathcal{A} \\
@@ -33,7 +33,7 @@ Es sei $\Omega$ eine Menge und $\mathcal{A} \subset  \mathcal{P}(\Omega)$ ein Sy
 $(A^c = \Omega \setminus A)$
 
 \subsubsection{Diskreter Wahrscheinlichkeitsraum}
-Ein diskreter Wahrscheinlichkeitsraum ist ein Wahrscheinlichkeitsraum $(\Omega, \mathcal{A}, P)$, bei dem die Grundmenge $\Omega$ abzählbar ist und die Menge der Ereignisse $\mathcal{A} := \mathcal{P}(\Omega)$ der Potenzmenge entspricht.
+Ein diskreter Wahrscheinlichkeitsraum ist ein Wahrscheinlichkeitsraum $(\Omega, \mathcal{A}, P)$, bei dem die Grundmenge $\Omega$ abzählbar ist und die Menge der Ereignisse $\mathcal{A} := 2^{\Omega}$ der Potenzmenge entspricht.
 
 \subsubsection{Laplace Experiment}
 Ein Laplace-Experiment ist ein Zufallsexperiment bei dem der Ereignisraum $\Omega$ endlich viele Elemente und ein Ereignis $A \subseteq \Omega$ die Wahrscheinlichkeit $P(A) = \frac{\#A}{\#\Omega}$ hat.
@@ -109,7 +109,7 @@ $$ X^{-1} (A') \in \mathcal{A}$$
  ein Ereignis in $\mathcal{A}$ ist. Urbilder von Ereignissen sind also Ereignisse.
 
 \subsubsection{Messraum}
-Ein Messraum ist ein Paar $(\Omega, \mathcal{A})$ bestehend aus einer Menge $\Omega$ und einer Sigma-Algebra $\mathcal{A} \subset \mathcal{P}(\Omega)$.
+Ein Messraum ist ein Paar $(\Omega, \mathcal{A})$ bestehend aus einer Menge $\Omega$ und einer Sigma-Algebra $\mathcal{A} \subset 2^{\Omega}$.
 
 \subsubsection{Reelle Zufallsvariable}
 Unter einer reellen Zufallsvariable verstehen wir eine Zufallsvariable 
@@ -117,7 +117,7 @@ Unter einer reellen Zufallsvariable verstehen wir eine Zufallsvariable
 & X : \Omega \to \mathbb{R}^n \\
 & X(\omega) := \biggl(X_1(\omega), \cdots , X_n(\omega)  \biggr) \; ,
 \end{align*}
-wobei $(\Omega, \mathcal{A}, P)$ ein Wahrscheinlichkeitsraum ist und $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$ der $\mathbb{R}^n$ zusammen mit der Borel'schen Sigma-Algebra ist.
+wobei $(\Omega, \mathcal{A}, P)$ ein Wahrscheinlichkeitsraum und das Tupel $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$ der Messraum mit $\mathbb{R}^n$ und der Borel'schen Sigma-Algebra ist.
 
 \pagebreak
 \subsection{Erwartungswert}

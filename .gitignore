@@ -144,3 +144,7 @@ dmypy.json
 *.lof
 *.lot
 TSWLatexianTemp_*
+
+*.fls
+
+*.fdb_latexmk
