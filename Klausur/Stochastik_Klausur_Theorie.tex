@@ -48,7 +48,7 @@ die bedingte Wahrscheinlichkeit (von $A$ unter $B$).
 
 
 \subsection{Variation und Kombination}
-$n$ bezeichnet die Gesamtzahl der Objekte und $k$ die Anzahl der Objekte, die ausgewählt wurden.
+Hier bezeichnet $n$ die Gesamtzahl der Objekte und $k$ die Anzahl der Objekte, die ausgewählt wurden.
 \begin{itemize}
 \item $\# Var_k^n(\Omega, m.W.)  = n^k$
 \item $\# Var_k^n(\Omega, o.W.)  = n_k = \frac{n!}{(n-k)!}$  
@@ -60,30 +60,33 @@ $n$ bezeichnet die Gesamtzahl der Objekte und $k$ die Anzahl der Objekte, die au
 \subsection{Spamfilter / Satz von Bayes}
 
 \subsubsection{Satz der totalen Wahrscheinlichkeit}
-Mit dem Satz der totalen Wahrscheinlichkeit lässt sich die Wahrscheinlichkeit des Ereignisses A berechnen, wenn man nur die bedingte Wahrscheinlichkeit abhängig von anderen Ereignissen aus der Grundmenge $\Omega$ gegeben hat. Hierbei muss die Vereinigung der anderen Ereignisse aber stets der Grundmenge $\Omega$ entsprechen (Zerlegung). Manchmal ist auch vom so genannten Gesetz der totalen Wahrscheinlichkeit die Rede.
-Für eine Zerlegung  \\
+Für eine Zerlegung
 $\Omega = \bigcup_{j=1}^{n} B_j, \text{ mit } B_i \cap B_k = \emptyset \text{ für } i \neq k $, gilt
 \begin{align*}
 & P(A ) = \sum_{j=1}^{n}  P(A \; | \;  B_j) \cdot P(B_j)
 \end{align*}
+\textbf{Bedeutung:}\\
+Mit dem Satz der totalen Wahrscheinlichkeit lässt sich die Wahrscheinlichkeit des Ereignisses A berechnen, wenn man nur die bedingte Wahrscheinlichkeit abhängig von anderen Ereignissen aus der Grundmenge $\Omega$ gegeben hat. Hierbei muss die Vereinigung der anderen Ereignisse aber stets der Grundmenge $\Omega$ entsprechen (Zerlegung). Manchmal ist auch vom so genannten Gesetz der totalen Wahrscheinlichkeit die Rede.
 
 \subsubsection{Satz von Bayes}
-Der Satz von Bayes ist einer der wichtigsten Sätze der Wahrscheinlichkeitrechnung. Er besagt, dass ein Verhältnis zwischen der bedingten Wahrscheinlichkeit zweier Ereignisse $P(A | B)$ und der umgekehrten Form $P(B | A)$ besteht. \\
-
 Für $A,B \in \mathcal{A}$ mit  $P(B) > 0$ gilt
 \begin{align*}
 & P(A \; | \;  B) = \frac{P(B \; | \; A) \cdot P(A)} {P(B)} \\
 \end{align*}
+\textbf{Bedeutung:}\\
+Der Satz von Bayes ist einer der wichtigsten Sätze der Wahrscheinlichkeitrechnung. Er besagt, dass ein Verhältnis zwischen der bedingten Wahrscheinlichkeit zweier Ereignisse $P(A | B)$ und der umgekehrten Form $P(B | A)$ besteht.
 
 \subsubsection{Stochastische Unabhängigkeit}
-Die stochastische Unabhängikeit von Ereignissen impliziert, dass das Eintreten des einen keine Auswirkung auf die Wahrscheinlichkeit des Eintretens des anderen Ereignisses hat. Man nennt das Ereignis $A$ stochastisch unabhängig vom Ereignis $B$, wenn die Wahrscheinlichkeit $P(A)$ nicht vom Eintreten des Ereignisses $B$ beeinflusst wird.\\
-
 Zwei Ereignisse $A,B$ heißen stochastisch unabhängig, falls
 \begin{align*}
 P(A \cap B) = P(A) \cdot P(B)
 \end{align*}
-gilt.  Gleichbedeutend damit ist  $P(A | B) = P(A)$ und $P(B  | A) = P(B)$.
-\newpage
+gilt.  Gleichbedeutend damit ist  $P(A | B) = P(A)$ und $P(B  | A) = P(B)$.\\
+
+\textbf{Bedeutung:}\\
+Die stochastische Unabhängikeit von Ereignissen impliziert, dass das Eintreten des einen keine Auswirkung auf die Wahrscheinlichkeit des Eintretens des anderen Ereignisses hat. Man nennt das Ereignis $A$ stochastisch unabhängig vom Ereignis $B$, wenn die Wahrscheinlichkeit $P(A)$ nicht vom Eintreten des Ereignisses $B$ beeinflusst wird.
+
+
 \subsubsection{Naiver Bayes'scher Spam Filter}
 Gegeben ist eine E-Mail $E$.  Wir möchten anhand des Vorkommens bestimmter Wörter $A_1, \ldots A_n$ in der Mail entscheiden, ob es sich um eine erwünschte Mail $H$ oder eine unerwünschte Mail $S$ handelt.\\\\
 Aus einer Datenbank kann man das Vorkommen dieser Wörter in allen E-Mails zählen und damit empirisch die Wahrscheinlichkeiten $P(A_i | S)$ und $P(A_i | H) $ des Vorkommens dieser Wörter in Spam und Ham Mails ermitteln.  Wir gehen davon aus, dass es sich bei der Mail  prinzipiell mit  Wahrscheinlichkeit $P(E= S) = P(E= H)= \frac{1}{2}$  um eine erwünschte  Mail $H$ oder eine unerwünschte Mail $S$  handeln kann. \\\\
@@ -116,9 +119,10 @@ $$ X^{-1} (A') \in \mathcal{A}$$
  ein Ereignis in $\mathcal{A}$ ist. Urbilder von Ereignissen sind also Ereignisse.
 
 \subsubsection{Messraum}
-In der Stochastik werden die Messräume auch teilweise Ereignisraum genannt, die messbaren Mengen heißen dann Ereignisse. Nach Wahl eines geeigneten Wahrscheinlichkeitsmaßes $P$ handelt es sich dann um einen Wahrscheinlichkeitsraum.\\
+Ein Messraum ist ein Paar $(\Omega, \mathcal{A})$ bestehend aus einer Menge $\Omega$ und einer Sigma-Algebra $\mathcal{A} \subseteq 2^{\Omega}$.\\
 
-Ein Messraum ist ein Paar $(\Omega, \mathcal{A})$ bestehend aus einer Menge $\Omega$ und einer Sigma-Algebra $\mathcal{A} \subseteq 2^{\Omega}$.
+\textbf{Erläuterung:}\\
+In der Stochastik werden die Messräume auch teilweise Ereignisraum genannt, die messbaren Mengen heißen dann Ereignisse. Nach Wahl eines geeigneten Wahrscheinlichkeitsmaßes $P$ handelt es sich dann um einen Wahrscheinlichkeitsraum.
 
 \subsubsection{Reelle Zufallsvariable}
 Unter einer reellen Zufallsvariable verstehen wir eine Zufallsvariable 
@@ -147,10 +151,10 @@ Sind $X,Y : \Omega \to \mathbb{R}^n$   reelle, integrierbare  Zufallsvariablen u
 \end{align*}
 
 \subsection{Varianz}
-Die Varianz ist ein Maß für die Streuung der Wahrscheinlichkeitsdichte um ihren Schwerpunkt (Erwartungswert). Mathematisch wird sie definiert als die mittlere quadratische Abweichung einer reellen Zufallsvariablen von ihrem Erwartungswert.\\
-
 Für eine reelle Zufallsvariable $X$ ist die Varianz definiert durch
 $$ \mathbb{V} (X) \; := \;  \mathbb{E}( (X - \mathbb{E}(X))^2) \;  = \; \mathbb{E}(X^2) -  \mathbb{E}(X)^2$$
+\textbf{Bedeutung:}\\
+Die Varianz ist ein Maß für die Streuung der Wahrscheinlichkeitsdichte um ihren Schwerpunkt (Erwartungswert). Mathematisch wird sie definiert als die mittlere quadratische Abweichung einer reellen Zufallsvariablen von ihrem Erwartungswert.
 
 \pagebreak
 \subsection{Verteilungen}
