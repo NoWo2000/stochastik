@@ -63,17 +63,16 @@ Hier bezeichnet $n$ die Gesamtzahl der Objekte und $k$ die Anzahl der Objekte, d
 Für eine Zerlegung
 $\Omega = \bigcup_{j=1}^{n} B_j, \text{ mit } B_i \cap B_k = \emptyset \text{ für } i \neq k $, gilt
 \begin{align*}
-& P(A ) = \sum_{j=1}^{n}  P(A \; | \;  B_j) \cdot P(B_j) \\
-& \\
-& \text{----- Zusatz zum Verstehen -----} \\
-& \\
-& = \sum_{j=1}^{n} \frac{P(A \cap B)}{P(B_j)} \cdot P(B_j)  \\
-P(B_j) \text{ kann gekürzt werden }& = \sum_{j=1}^{n} {P(A \cap B_j)} \\
-& \Rightarrow \text{ Man nimmt sich aus jedem } P(A \cap B_1) \text{ bis } P(A \cap B_n) \\
-& \text{die Anteile von A und summiert sie auf, denn man nimm } \\
-& \text{die Summe über 1 bis n für B, was dann wieder} \\
-& \text{der Menge von } \Omega \text{ entspricht.} \\
+& P(A ) = \sum_{j=1}^{n}  P(A \; | \;  B_j) \cdot P(B_j)
 \end{align*}
+
+\textbf{Erläuterung:}
+\begin{align*} \\
+& = \sum_{j=1}^{n} \frac{P(A \cap B)}{P(B_j)} \cdot P(B_j)  \quad \quad \text{(Einsetzen der bedingten Wahrscheinlichkeit})\\
+& = \sum_{j=1}^{n} {P(A \cap B_j)} \quad \quad \text{(Kürzen von } P(B_j))\\
+\end{align*}
+$\Rightarrow$ Man nimmt sich aus jedem $P(A \cap B_1)$ bis $P(A \cap B_n)$ einzelne Anteile der Wahrscheinlichkeit von A und summiert sie auf. Die Summe über 1 bis n für stellt dabei sicher das jeder Teil von A berücksichtigt wird, da $\bigcup_{j=1}^{n} B_j = \Omega$ gilt.\\
+
 \textbf{Bedeutung:}\\
 Mit dem Satz der totalen Wahrscheinlichkeit lässt sich die Wahrscheinlichkeit des Ereignisses A berechnen, wenn man nur die bedingte Wahrscheinlichkeit abhängig von anderen Ereignissen aus der Grundmenge $\Omega$ gegeben hat. Hierbei muss die Vereinigung der anderen Ereignisse aber stets der Grundmenge $\Omega$ entsprechen (Zerlegung). Manchmal ist auch vom so genannten Gesetz der totalen Wahrscheinlichkeit die Rede.
 
@@ -140,6 +139,7 @@ Unter einer reellen Zufallsvariable verstehen wir eine Zufallsvariable
 & X(\omega) := \biggl(X_1(\omega), \cdots , X_n(\omega)  \biggr) \; ,
 \end{align*}
 wobei $(\Omega, \mathcal{A}, P)$ ein Wahrscheinlichkeitsraum und das Tupel $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$ der Messraum mit $\mathbb{R}^n$ und der Borel'schen Sigma-Algebra ist.
+
 \pagebreak
 \subsection{Erwartungswert}
 
