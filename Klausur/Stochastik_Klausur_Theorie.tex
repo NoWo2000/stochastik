@@ -9,12 +9,13 @@
 
 \begin{document}
 \tableofcontents
-\section{Theorie}
+\pagebreak
+\section*{Theorie}
 \setlength{\parindent}{0em}
 
-\subsection{Wahrscheinlichkeitsraum}
+\section{Wahrscheinlichkeitsraum}
 
-\subsubsection{Definition}
+\subsection{Definition}
 Ein Wahrscheinlichkeitsraum ist ein Tripel $(\Omega, \mathcal{A}, P)$ bestehend aus der Grundmenge $\Omega$, einer $\sigma$-Algebra $\mathcal{A} \subseteq  2^{\Omega}$ und einer Abbildung
 $P : \mathcal{A} \to [0,1]$
 \begin{align*}
@@ -24,7 +25,7 @@ $P : \mathcal{A} \to [0,1]$
 Die Elemente von $\Omega$ werden elementare Ereignisse und die von $\mathcal{A}$ Ereignisse genannt. Mengen M mit $P(M) = 0$ werden Nullmengen genannt.
 Die Abbildung $P$ wird Wahrscheinlichkeitsmaß genannt.
 
-\subsubsection{$\sigma$-Algebra}
+\subsection{$\sigma$-Algebra}
 Es sei $\Omega$ eine Menge und $\mathcal{A} \subseteq  2^{\Omega}$ ein System von Teilmengen (= Ereignissen). $\mathcal{A}$ heißt $\sigma$-Algebra (Sigma-Algebra) falls gilt:
 \begin{align*}
 & (i) \; \Omega \in \mathcal{A} \\
@@ -33,14 +34,14 @@ Es sei $\Omega$ eine Menge und $\mathcal{A} \subseteq  2^{\Omega}$ ein System vo
 \end{align*}
 $(A^c = \Omega \setminus A)$
 
-\subsubsection{Diskreter Wahrscheinlichkeitsraum}
+\subsection{Diskreter Wahrscheinlichkeitsraum}
 Ein diskreter Wahrscheinlichkeitsraum ist ein Wahrscheinlichkeitsraum $(\Omega, \mathcal{A}, P)$, bei dem die Grundmenge $\Omega$ abzählbar ist und die Menge der Ereignisse $\mathcal{A} := 2^{\Omega}$ der Potenzmenge entspricht.
 
-\subsubsection{Laplace Experiment}
+\subsection{Laplace Experiment}
 Ein Laplace-Experiment ist ein Zufallsexperiment bei dem der Ereignisraum $\Omega$ endlich viele Elemente und ein Ereignis $A \subseteq \Omega$ die Wahrscheinlichkeit $P(A) = \frac{\#A}{\#\Omega}$ hat.
 
 
-\subsection{Bedingte Wahrscheinlichkeit}
+\section{Bedingte Wahrscheinlichkeit}
 Für $A,B \in \mathcal{A}$ und $P(B) > 0$ heißt
 \begin{align*}
 & P(A \; | \;  B) = \frac{P(A \cap B)}{P(B)} \\
@@ -48,7 +49,7 @@ Für $A,B \in \mathcal{A}$ und $P(B) > 0$ heißt
 die bedingte Wahrscheinlichkeit (von $A$ unter $B$).
 
 
-\subsection{Variation und Kombination}
+\section{Variation und Kombination}
 Hier bezeichnet $n$ die Gesamtzahl der Objekte und $k$ die Anzahl der Objekte, die ausgewählt wurden.
 \begin{itemize}
 \item $\# Var_k^n(\Omega, m.W.)  = n^k$
@@ -58,9 +59,9 @@ Hier bezeichnet $n$ die Gesamtzahl der Objekte und $k$ die Anzahl der Objekte, d
 \end{itemize}
 
 
-\subsection{Spamfilter / Satz von Bayes}
+\section{Spamfilter / Satz von Bayes}
 
-\subsubsection{Satz der totalen Wahrscheinlichkeit}
+\subsection{Satz der totalen Wahrscheinlichkeit}
 Für eine Zerlegung
 $\Omega = \bigcup_{j=1}^{n} B_j, \text{ mit } B_i \cap B_k = \emptyset \text{ für } i \neq k $, gilt
 \begin{align*}
@@ -77,7 +78,7 @@ $\Rightarrow$ Man nimmt sich aus jedem $P(A \cap B_1)$ bis $P(A \cap B_n)$ einze
 \textbf{Bedeutung:}\\
 Mit dem Satz der totalen Wahrscheinlichkeit lässt sich die Wahrscheinlichkeit des Ereignisses A berechnen, wenn man nur die bedingte Wahrscheinlichkeit abhängig von anderen Ereignissen aus der Grundmenge $\Omega$ gegeben hat. Hierbei muss die Vereinigung der anderen Ereignisse aber stets der Grundmenge $\Omega$ entsprechen (Zerlegung). Manchmal ist auch vom so genannten Gesetz der totalen Wahrscheinlichkeit die Rede.
 
-\subsubsection{Satz von Bayes}
+\subsection{Satz von Bayes}
 Für $A,B \in \mathcal{A}$ mit  $P(B) > 0$ gilt
 \begin{align*}
 & P(A \; | \;  B) = \frac{P(B \; | \; A) \cdot P(A)} {P(B)} \\
@@ -85,7 +86,7 @@ Für $A,B \in \mathcal{A}$ mit  $P(B) > 0$ gilt
 \textbf{Bedeutung:}\\
 Der Satz von Bayes ist einer der wichtigsten Sätze der Wahrscheinlichkeitrechnung. Er besagt, dass ein Verhältnis zwischen der bedingten Wahrscheinlichkeit zweier Ereignisse $P(A | B)$ und der umgekehrten Form $P(B | A)$ besteht.
 
-\subsubsection{Stochastische Unabhängigkeit}
+\subsection{Stochastische Unabhängigkeit}
 Zwei Ereignisse $A,B$ heißen stochastisch unabhängig, falls
 \begin{align*}
 P(A \cap B) = P(A) \cdot P(B)
@@ -96,7 +97,7 @@ gilt.  Gleichbedeutend damit ist  $P(A | B) = P(A)$ und $P(B  | A) = P(B)$.\\
 Die stochastische Unabhängikeit von Ereignissen impliziert, dass das Eintreten des einen keine Auswirkung auf die Wahrscheinlichkeit des Eintretens des anderen Ereignisses hat. Man nennt das Ereignis $A$ stochastisch unabhängig vom Ereignis $B$, wenn die Wahrscheinlichkeit $P(A)$ nicht vom Eintreten des Ereignisses $B$ beeinflusst wird.
 
 
-\subsubsection{Naiver Bayes'scher Spam Filter}
+\subsection{Naiver Bayes'scher Spam Filter}
 Gegeben ist eine E-Mail $E$.  Wir möchten anhand des Vorkommens bestimmter Wörter $A_1, \ldots A_n$ in der Mail entscheiden, ob es sich um eine erwünschte Mail $H$ oder eine unerwünschte Mail $S$ handelt.\\\\
 Aus einer Datenbank kann man das Vorkommen dieser Wörter in allen E-Mails zählen und damit empirisch die Wahrscheinlichkeiten $P(A_i | S)$ und $P(A_i | H) $ des Vorkommens dieser Wörter in Spam und Ham Mails ermitteln.  Wir gehen davon aus, dass es sich bei der Mail  prinzipiell mit  Wahrscheinlichkeit $P(E= S) = P(E= H)= \frac{1}{2}$  um eine erwünschte  Mail $H$ oder eine unerwünschte Mail $S$  handeln kann. \\\\
  Wir machen zudem die (naive) Annahme, dass das Vorkommen der Wörter  stochastisch unabhängig ist, also 
@@ -118,22 +119,22 @@ Bemerkung: $P(E=H |  A_1 \cap \cdots \cap A_n) = 1- P(E=S |  A_1 \cap \cdots \ca
 Die Wahrscheinlichkeiten $P(A_i | S)$ und $P(A_i | H) $ sind durch Empirie (Datenbank) bekannt. Daher lässt sich so nun die Wahrscheinlichkeit berechnen, ob es sich bei einer E-Mail, welche die Wörter $A_i$ enthält, um eine Spam E-Mail handelt.
 
 
-\subsection{Zufallsvariablen}
+\section{Zufallsvariablen}
 
-\subsubsection{Allgemeine Zufallsvariable}
+\subsection{Allgemeine Zufallsvariable}
 Sei $(\Omega, \mathcal{A}, P)$ ein Wahrscheinlichkeitsraum und $(\Omega', \mathcal{A}')$ ein Messraum. Eine Zufallsvariable ist eine Abbildung
 $$X : \Omega \to \Omega'$$ 
 so dass für alle Ereignisse $A' \in  \mathcal{A}'$
 $$ X^{-1} (A') \in \mathcal{A}$$
  ein Ereignis in $\mathcal{A}$ ist. Urbilder von Ereignissen sind also Ereignisse.
 
-\subsubsection{Messraum}
+\subsection{Messraum}
 Ein Messraum ist ein Paar $(\Omega, \mathcal{A})$ bestehend aus einer Menge $\Omega$ und einer Sigma-Algebra $\mathcal{A} \subseteq 2^{\Omega}$.\\
 
 \textbf{Erläuterung:}\\
 In der Stochastik werden die Messräume auch teilweise Ereignisraum genannt, die messbaren Mengen heißen dann Ereignisse. Nach Wahl eines geeigneten Wahrscheinlichkeitsmaßes $P$ handelt es sich dann um einen Wahrscheinlichkeitsraum.
 
-\subsubsection{Reelle Zufallsvariable}
+\subsection{Reelle Zufallsvariable}
 Unter einer reellen Zufallsvariable verstehen wir eine Zufallsvariable 
 \begin{align*}
 & X : \Omega \to \mathbb{R}^n \\
@@ -142,15 +143,15 @@ Unter einer reellen Zufallsvariable verstehen wir eine Zufallsvariable
 wobei $(\Omega, \mathcal{A}, P)$ ein Wahrscheinlichkeitsraum und das Tupel $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$ der Messraum mit $\mathbb{R}^n$ und der Borel'schen Sigma-Algebra ist.
 
 \pagebreak
-\subsection{Erwartungswert}
+\section{Erwartungswert}
 
-\subsubsection{Definition}
+\subsection{Definition}
 Für eine reelle, integrierbare Zufallsvariable $X$ ist der Erwartungswert definiert durch
 $$ \mathbb{E} (X) := \int_{\Omega} X \; dP \; .$$
 Ist $(\Omega, \mathcal{A}, P)$ ein diskreter Wahrscheinlichkeitsraum und $X :\Omega \to \mathbb{R}$ eine eindimensionale reelle Zufallsvariable, so ist
 $$ \mathbb{E} (X) = \sum_{\omega \in \Omega}  X(\omega) \cdot P(\omega)$$
 
-\subsubsection{Eigenschaften}
+\subsection{Eigenschaften}
 Sind $X,Y : \Omega \to \mathbb{R}^n$   reelle, integrierbare  Zufallsvariablen und $a,b \in \mathbb{R}$ konstant, so gilt:
 \begin{align*}
 & \mathbb{E}(a \cdot X \pm b \cdot Y) = a \cdot \mathbb{E}(X) \pm b \cdot \mathbb{E}(Y) \\
@@ -159,16 +160,16 @@ Sind $X,Y : \Omega \to \mathbb{R}^n$   reelle, integrierbare  Zufallsvariablen u
 & \mathbb{E} (1_A) = P (A)
 \end{align*}
 
-\subsection{Varianz}
+\section{Varianz}
 Für eine reelle Zufallsvariable $X$ ist die Varianz definiert durch
 $$ \mathbb{V} (X) \; := \;  \mathbb{E}( (X - \mathbb{E}(X))^2) \;  = \; \mathbb{E}(X^2) -  \mathbb{E}(X)^2$$
 \textbf{Bedeutung:}\\
 Die Varianz ist ein Maß für die Streuung der Wahrscheinlichkeitsdichte um ihren Schwerpunkt (Erwartungswert). Mathematisch wird sie definiert als die mittlere quadratische Abweichung einer reellen Zufallsvariablen von ihrem Erwartungswert.
 
 \pagebreak
-\subsection{Verteilungen}
+\section{Verteilungen}
 
-\subsubsection{Normalverteilung}
+\subsection{Normalverteilung}
 Die Normalverteilung $N{(\mu,\sigma^2)}$ auf $\mathbb{R}$ ist definiert durch
 \begin{align*}
 & \text{Dichte: } f (x) : = \frac 1{\sigma \sqrt{2\pi}}e^{- \frac {1}{2} (\frac{x- \mu}{ \sigma})^2} \\
@@ -181,7 +182,7 @@ Die Normalverteilung $N{(\mu,\sigma^2)}$ auf $\mathbb{R}$ ist definiert durch
 \end{align*}
 Die Varianz ist die mittlere quadratische Abweichung vom Erwartungswert. \\
 
-\subsubsection{Verteilungsfunktion}
+\subsection{Verteilungsfunktion}
 Für eine reelle Zufallsvariable $X$ heißt 
 \begin{align*} 
 & F_X : \Omega \to [0,1] \\
@@ -189,7 +190,7 @@ Für eine reelle Zufallsvariable $X$ heißt
 \end{align*}
 Verteilungsfunktion von $X$.
 
-\subsubsection{Gleichverteilung}
+\subsection{Gleichverteilung}
 Gleichverteilung: Jedes Ereignis hat die gleiche Wahrscheinlichkeit. \\
 Die Gleichverteilung $U{(a,b)}$ auf einem Intervall $(a,b) \subset \mathbb{R}$ ist definiert durch
 \begin{align*}
@@ -205,97 +206,97 @@ Die Gleichverteilung $U{(a,b)}$ auf einem Intervall $(a,b) \subset \mathbb{R}$ i
     &= \frac{1}{12}(b - a)^2
 \end{align*}
 
-\subsubsection{Dichte}
+\subsection{Dichte}
 Sei $\Omega \subset \mathbb{R}^n$ und $(\Omega, \mathcal{A})$ ein Messraum, wobei alle $A \in \mathcal{A}$ Lebesgue-messbar sind.
  Eine Funktion $f: \Omega \to \mathbb{R}$ heißt Dichte, falls für ihr Lebesgue-Integral $\int_{\Omega} f d \mu = 1$ gilt.
 
 
-\subsection{Schwaches Gesetz der großen Zahlen}
+\section{Schwaches Gesetz der großen Zahlen}
 
-\subsubsection{Definition}
+\subsection{Definition}
 Seien $X_i : \Omega \to \mathbb{R}$ unabhängige, reelle Zufallsvariablen mit $\mathbb{E}(X_i) = \mu < \infty$ und $\mathbb{V}(X_i) = \sigma < \infty$, dann gilt
 \begin{align*}
 P \bigl  ( \bigl | \frac{1}{n} \sum_{i=1}^{n} X_i - \mu \bigr |  \geq \epsilon \bigr) \leq \frac{\sigma}{ n \cdot \epsilon^2} \; \; \underset{n \to \infty}{\longrightarrow} 0
 \end{align*}
 (stochastische Konvergenz). 
 
-\subsubsection{Bedeutung}
+\subsection{Bedeutung}
 Das schwache Gesetz der großen Zahlen besagt, dass das arithmetische Mittel einer großen Stichprobe einer Zufallsvariable mit einer beliebig kleinen Wahrscheinlichkeit dem Erwartungswert der Zufallsvariable entspricht.\\
 
 \textbf{Gegenteilige (äquivalente) Formulierung:}\\
 Die Wahrscheinlichkeit, dass die Differenz zwischen beobachteter relativer Häufigkeit und theoretischer Wahrscheinlichkeit kleiner ist als eine beliebig kleine positive Zahl $\epsilon$, geht für eine unendlich große Stichprobe gegen 1.
 
 
-\subsection{Zentraler Grenzwertsatz}
+\section{Zentraler Grenzwertsatz}
 
-\subsubsection{Definition}
+\subsection{Definition}
 Sei $(\Omega, \mathcal{A}, P)$ ein Wahrscheinlichkeitsraum und $X_n :  \Omega \to \mathbb{R}$  eine folge stochastisch unabhängiger, identisch verteilter, reeller Zufallsvariablen mit $\mathbb{E}(X_n) = \mu$ und $\mathbb{V}(X_n)= \sigma^2$. Dann gilt für das arithmetische Mittel $S_n:= \frac{1}{n} \sum_{i=1}^n X_i$
 \begin{align*}
 P_{ \frac{\sqrt{n}}{\sigma} (S_n-\mu)} \to P_{N(0,1)}
 \end{align*}
 wobei $ P_{N(0,1)}$ das Wahrscheinlichkeits-Maß mit der Dichte $ \frac {1}{ \sqrt{2\pi}}e^{- \frac {1}{2} x^2}$ ist.
-\subsubsection{Bedeutung}
+\subsection{Bedeutung}
 Die Summe von $n$ identisch verteilten, stochastisch unabhängigen Zufallsvariablen ist näherungsweise normalverteilt.\\
 
 \textbf{Beispiel Würfel:}\\
 Die Augensumme von $n \to \infty$ Würfeln ist normalverteilt, wenn alle Würfel von einander stochastisch unabhängig und gleichverteilt sind.
 
 \pagebreak
-\subsection{Schätzer}
+\section{Schätzer}
 
-\subsubsection{Ausgangslage}
+\subsection{Ausgangslage}
 Angenommen man findet einen Apparat, der zufällig Zahlen in einem Intervall $[0, \rho]$ ausgibt. Anhand von Beobachtungen der Zahlen möchte man $\rho$ schätzen. Wir machen die Annahme, dass alle Zahlen in dem Intervall gleich wahrscheinlich auftreten und  nehmen $n$ Stichproben $X_1, \cdots, X_n$. Einen Schätzer für $\rho$ bezeichnen wir mit $T_n$.
 
-\subsubsection{Maximalwert-Schätzer}
+\subsection{Maximalwert-Schätzer}
 Eine einfache und einleuchtende Idee ist es, $\rho$ durch die größte beobachtete Zahl zu schätzen, also
 $T_n^{max} := \max(X_1, \cdots, X_n)$.\\
 Dieser Schätzer konvergiert für $n \to \infty$ gegen $\rho$, also $$P(| T_n^{max} - \rho | \geq \epsilon) \underset{n \to \infty}{\longrightarrow} 0$$\\
 Der Erwartungswert dieses Schätzers ist $$ \mathbb{E}(T_n^{max} ) = \frac{n}{n+1} \rho    \underset{n \to \infty}{\longrightarrow} \rho$$
 
 
-\subsubsection{Erwartungswert-Schätzer}
+\subsection{Erwartungswert-Schätzer}
 Da das Auftreten der Zahlen gleich wahrscheinlich ist, ist der Erwartungswert des Zufallsexperiments $\rho /2$. Unter Berufung auf das  schwache Gesetz der großen Zahlen erscheint der Schätzer
 $T_n^{E} :=  2 \cdot \biggl( \frac{1}{n} \sum_{i=1}^n X_i \biggr)$ sehr plausibel.\\
 Dieser Schätzer konvergiert für $n \to \infty$ gegen $\rho$, also $$P(| T_n^{E} - \rho | \geq \epsilon) \underset{n \to \infty}{\longrightarrow} 0$$\\
 Der Erwartungswert dieses Schätzers ist $$ \mathbb{E}(T_n^{E} ) = \rho$$
 
-\subsubsection{Bedeutung}
+\subsection{Bedeutung}
 Beide Schätzer sind asymptotisch exakt und konvergieren gegen $\rho$ (= Erwartungstreu). Der Erwartungswert-Schätzer ist aber durchschnittlich (Erwartungswert) früher exakt $\rho$ als der Maximalwert-Schätzer mit seinem Bias $\frac{n}{n+1}$. Die Varianz von beiden Schätzern geht für $n \to \infty$ gegen 0, beide werden also immer aussagekräftiger mit zunehmender Stichprobenanzahl.\\
 Kein Schätzer ist allgemein perfekt, den aktuell passenden Schätzer kann man nach Kriterien wie Konvergenzgeschwindigkeit zum gesuchten Wert, Konvergenzgeschwindigkeit des Erwartungswertes und der Konvergenzgeschwindigkeit der Varianz auswählen.
 
 \pagebreak
-\subsection{Informationstheorie / Entropie}
+\section{Informationstheorie / Entropie}
 
-\subsubsection{Ausgangslage}
+\subsection{Ausgangslage}
 Gegeben eine reelle, diskrete Zufallsvariable $X :\mathcal{X} \to \mathbb{R}$ mit endlichem Grundraum $\#\mathcal{X}  \geq 2$ und Verteilung $Q$.\\
 Mit $L : \mathcal{X} \to \mathbb{N}$ bezeichnen wir die Anzahl an Fragen $L(x)$, die benötigt werden, um bei einer gewählten Strategie den Wert von $X = x$ zu erraten.\\
 Wir suchen eine Strategie, so dass die mittlere Anzahl an Fragen  (Erwartungswert) $\mathbb{E}(L(X)) := \sum_{x \in \mathcal{X}} L(x) Q(x)$  möglichst klein ist.
 
-\subsubsection{Wörter und Wortmenge}
+\subsection{Wörter und Wortmenge}
 Gegeben sei eine endliche Menge $\mathcal{A}$ mit $\# A \geq 2$, genannt Alphabet.
 Ein Wort der Länge $k$ ist gegeben durch ein Tupel $w = b_1b_2 \cdots b_k$ mit Buchstaben $b_i \in \mathcal {A}$.\\
 Die Menge aller Wörter bezeichnen wir mit 
 $$\mathcal{W} (\mathcal{A}) := \{  b_1 \cdots b_k \; | \; i \in \mathbb{N}, \; b_i \in \mathcal{A} \} $$
  Mit $l(w):= k$ für $w=b_1 \cdots b_k  $ bezeichnen wir die Länge des Wortes.
  
-\subsubsection{Kode und Präfix}
+\subsection{Kode und Präfix}
 Ein $\mathcal{A}$-Kode für die Menge $\mathcal{X}$ mit Alphabet $\mathcal{A}$ ist eine injektive Abbildung (1-zu-1)
 $$ \kappa : \mathcal{X} \to \mathcal{W} (\mathcal{A})$$
 die jedem Wort $x \in \mathcal{X}$ eindeutig ein Kodewort $\kappa(x)$ zuordnet.\\\\
 Ein Wort $v = a_1 \cdots a_j$ heißt Präfix des Wortes $w = b_1 \cdots b_k$, wenn $j \leq k$ und $v = b_1 \cdots b_j$ ist. Das Wort $w$ heisst Fortsetzung von $v$. Ein Kode $$ \kappa : \mathcal{X} \to \mathcal{W} (\mathcal{A})$$
  heißt präfixfrei, wenn kein Kodewort $\kappa(x)$ Präfix eines anderen Kodewortes $\kappa(y)$ ist. 
 
-\subsubsection{Zusammenhang mit der Fragestrategie}
+\subsection{Zusammenhang mit der Fragestrategie}
 Jede Fragestrategie liefert einen präfixfreien Kode mit Alphabet $\mathcal{A := \{  \text{j} ,\text{n} \}}$.\\
 Das Maß für Informationsgehalt (= Entropie) der Quelle $X$ ist das Minimum von $\mathbb{E}(l(\kappa (X)))$ über alle präfixfreien Kodes $\kappa$ für $X$.
 
-\subsubsection{Kraftsche Ungleichung}
+\subsection{Kraftsche Ungleichung}
 Sei $\kappa$ ein präfixfreier $\mathcal{A}$-Kode für $\mathcal{X}$ mit $\# \mathcal{A} = d$. Dann ist
 $$ \sum_{x \in \mathcal{X} }  d^{-l( \kappa(x))} \leq 1$$\\\\
 Für $x \in \mathcal{X}$ sei $L : \mathcal{X} \to \mathbb{N}$ eine Abbildung, so dass $ \sum_{x \in \mathcal{X} }  d^{-L(x)} \leq 1$ gilt. Dann gibt es einen präfixfreien  $\mathcal{A}$-Kode für $\mathcal{X}$ mit 
 $$ l(\kappa(x)) = L(x) \; .$$
 
-\subsubsection{Entropie}
+\subsection{Entropie}
 Die Entropie $H_d(X)$ der Ordnung $d$ der Zufallsvariable $X$ ist definiert als das Minimum von $\sum_{x \in \mathcal{X} }  L(x) Q(x)$ über alle Abbildungen $L: \mathcal{X} \to \mathbb{N}$ mit \mbox{$\sum_{x \in \mathcal{X} }  d^{-L(x)} \leq 1$.}\\\\
 Die Entropie der Zufallsvariable $X$ ist definiert durch 
 $$ H(X) := -\sum_{x \in \mathcal{X} }   Q(x) \log(Q(x))$$\\
@@ -304,7 +305,7 @@ $$ \frac{H(X)}{\log(d)} \leq H_d(X) \leq \frac{H(X)}{\log(d)} +1 \; .$$\\\\
 Berechne für $x \in \mathcal{X}$ die Funktion $L(x) := \lceil -\log_d(Q(x)) \rceil$. Damit existiert ein präfixfreier $\mathcal{A}$-Kode
 $\kappa$ mit $l(\kappa(x)) = L(x)$. Dann gilt $\mathbb{E}(l(\kappa(X))) < H_d(X) +1$.
 
-\subsubsection{Bedeutung}
+\subsection{Bedeutung}
 Eine Fragestrategie ist äquivalent zu einem präfixfreien Kode. Die durchschnittliche Anzahl an notwendigen Fragen zur Bestimmung des Ergebnisses einer Zufallsvariable $X$ ist somit ebenfalls äquivalent zur durchschnittlichen Wortlänge des zugehörigen präfixfreien Kodes.\\
 Die Entropie ist ein Maß für den Informationsgehalt einer Zufallsvariable $X$. Je häufiger ein Ergebnis auftritt, desto geringer ist sein Informationswert.\\
 Die Entropie beschreibt die durchschnittliche Wortlänge eines optimalen, präfixfreien Kodes für $X$. Dabei ist ein Kode genau dann optimal, wenn die durchschnittliche Wortlänge eines Kodewortes, im Vergleich mit allen möglichen präfixfreien Kodes für $X$, minimal ist.\\
