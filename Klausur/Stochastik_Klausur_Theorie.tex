@@ -8,6 +8,7 @@
 \usepackage[noend]{algpseudocode}
 
 \begin{document}
+\tableofcontents
 \section{Theorie}
 \setlength{\parindent}{0em}
 
@@ -71,7 +72,7 @@ $\Omega = \bigcup_{j=1}^{n} B_j, \text{ mit } B_i \cap B_k = \emptyset \text{ f�
 & = \sum_{j=1}^{n} \frac{P(A \cap B)}{P(B_j)} \cdot P(B_j)  \quad \quad \text{(Einsetzen der bedingten Wahrscheinlichkeit})\\
 & = \sum_{j=1}^{n} {P(A \cap B_j)} \quad \quad \text{(K체rzen von } P(B_j))\\
 \end{align*}
-$\Rightarrow$ Man nimmt sich aus jedem $P(A \cap B_1)$ bis $P(A \cap B_n)$ einzelne Anteile der Wahrscheinlichkeit von A und summiert sie auf. Die Summe 체ber 1 bis n f체r stellt dabei sicher das jeder Teil von A ber체cksichtigt wird, da $\bigcup_{j=1}^{n} B_j = \Omega$ gilt.\\
+$\Rightarrow$ Man nimmt sich aus jedem $P(A \cap B_1)$ bis $P(A \cap B_n)$ einzelne Anteile der Wahrscheinlichkeit von A und summiert sie auf. Die Summe 체ber 1 bis n stellt dabei sicher das jeder Teil von A ber체cksichtigt wird, da $\bigcup_{j=1}^{n} B_j = \Omega$ gilt.\\
 
 \textbf{Bedeutung:}\\
 Mit dem Satz der totalen Wahrscheinlichkeit l채sst sich die Wahrscheinlichkeit des Ereignisses A berechnen, wenn man nur die bedingte Wahrscheinlichkeit abh채ngig von anderen Ereignissen aus der Grundmenge $\Omega$ gegeben hat. Hierbei muss die Vereinigung der anderen Ereignisse aber stets der Grundmenge $\Omega$ entsprechen (Zerlegung). Manchmal ist auch vom so genannten Gesetz der totalen Wahrscheinlichkeit die Rede.
