@@ -203,7 +203,7 @@ Die Gleichverteilung $U{(a,b)}$ auf einem Intervall $(a,b) \subset \mathbb{R}$ i
 \textbf{Erwartungswert und Varianz bei $X \sim U(a,b)$:}
 \begin{align*}
 & \mathbb{E}(X) = \frac{a+b}2 \\
-& \mathbb{V}(X) = \mathbb{E}(X^2) - \left({\mathbb{E}(X)} \right)^2  = \frac{1}{3}\frac{b^3  - a^3}{b - a} - \left( {\frac{a + b}{2}} \right)^2 \\
+& \mathbb{V}(X) = \mathbb{E}(X^2) - \mathbb{E}(X)^2  = \frac{1}{3}\frac{b^3  - a^3}{b - a} - \left( {\frac{a + b}{2}} \right)^2 \\
     &= \frac{1}{12}(b - a)^2
 \end{align*}
 
@@ -311,6 +311,10 @@ Die Entropie ist ein Maß für den Informationsgehalt einer Zufallsvariable $X$.
 Die Entropie beschreibt die durchschnittliche Wortlänge eines optimalen, präfixfreien Kodes für $X$. Dabei ist ein Kode genau dann optimal, wenn die durchschnittliche Wortlänge eines Kodewortes, im Vergleich mit allen möglichen präfixfreien Kodes für $X$, minimal ist.\\
 Die minimale durchschnittliche Kodewortlänge (Entropie) hängt auch von den zur Verfügung stehenden Anzahl an Buchstaben $d$ ab (mehr Antwortmöglichkeiten $\rightarrow$ weniger Fragen notwendig).\\
 Das die minimale durchschnittliche Kodewortlänge tatsächlich der Entropie $H_d(X)$ entspricht, wird durch die kraftsche Ungleichung impliziert.\\
-Die Entropie $H_d(X)$ kann zwar nicht direkt berechnet, aber durch die Entropie-Ungleichung unter Verwendung von $H(X)$ zwischen zwei natürliche Zahlen eingeschätzt werden.
+Die Entropie $H_d(X)$ kann zwar nicht direkt berechnet, aber durch die Entropie-Ungleichung unter Verwendung von $H(X)$ zwischen zwei natürliche Zahlen eingeschätzt werden.\\
+
+\textbf{Formulierung von Pius:}\\
+Es geht ja darum, dass wir annehmen, dass wir zu einem Zufallsexperiment unser $X$ bestimmen wollen. Dafür dürfen wir aber nur mit Ja oder Nein antworten. Folglich gibt es, um diese Zufallsvariable zu erhalten gute und weniger gute Fragestrategien. Dabei definieren wir $L(x)$ als die Anzahl der Fragen um bei gegebener Fragestrategie $X = x$ zu erfahren. Gesucht wird also eine Strategie, bei der die mittlere Anzahl an Fragen, also der Erwartungswert $EL(x)$ möglichst gering ist.
+Darüber definieren wir dann Wörter sowie eine Wortmenge. Über dieses Alphabet können wir dann Kodes erzeugen, die die Eigenschaft mit sich bringen, dass aus kodierten Fragestrategien immer präfixfreie Kodes entstehen. Daraus folgt dann das Maß für den Informationsgehalt der Quelle $X$ als das Minimum von $El(K(X))$. Und genau diese Größe, also $El(K(X))$ wollen wir abschätzen. Über die kraftschen Ungleichungen können wir dies dann auch machen. Am Ende kommt dann die Entropie $H_d(X)$ heraus, die uns genau das definiert was wir haben wollen, nämlich das Maß für den Informationsgehalt. Wichtig ist an dieser Stelle natürlich die Entropie-Ungleichung, mit der wir genau das dann abschätzen können. Und das wiederum wurde am Anfang ja gesucht. Eine Möglichkeit diese abzuschätzen.
 
 \end{document}
