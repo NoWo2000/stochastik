@@ -1,0 +1,161 @@
+\documentclass[a4paper,13pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[all]{hypcap}
+\hypersetup{
+        colorlinks = true, % comment this to make xdvi work
+        linkcolor  = blue,
+        citecolor  = red,
+        filecolor  = Gold,
+        urlcolor   = blue,
+        pdfborder  = {0 0 0} 
+}
+\usepackage{color}
+\usepackage[ngerman]{babel}
+\usepackage[pdftex]{graphicx}
+%\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\pagestyle{empty}
+
+%\topmargin20mm
+\oddsidemargin0mm
+\parindent0mm
+\parskip2mm
+\textheight25.5cm
+\textwidth15.8cm
+\unitlength1mm
+
+\newcommand{\exercise}{\vspace*{0.2cm}
+\stepcounter{aufgabe}
+\noindent
+\textbf{Aufgabe \arabic{aufgabe}}: }
+\newcounter{aufgabe}
+
+\newcommand{\solution}{\vspace*{0.2cm}
+\noindent
+\textbf{Lösung}: }
+
+
+
+\begin{document}
+\section*{\large  Neue Aufgaben Kombinatorik (Lösungen)}
+\hrule
+\hrule
+\vspace{4mm}
+
+\exercise
+In einem Korb liegen 7 unterschiedlich schwere Äpfel. Wieviele Möglichkeiten gibt es, die Äpfel nach ihrem Gewicht anzuordnen?
+\vspace{4mm}
+
+\solution
+Es handelt sich um eine Variation ohne Wiederholung, also $\#Var_{7}^{7}(\Omega, o. W.)$.\\
+Also gibt es $n_k = \frac{n!}{(n-k)!} = \frac{7!}{(7-7)!} = 7! = 5040$ Möglichkeiten.
+\vspace{8mm}
+
+
+\exercise
+Sie dürfen von 10 verschieden farbigen Luftballons 3 zum Platzen bringen. Wieviele unterschiedliche Auswahlmöglichkeiten haben Sie insgesamt?
+\vspace{4mm}
+
+\solution
+Es handelt sich um eine Kombination ohne Wiederholung, also $\#Kom_{3}^{10}(\Omega, o. W.)$.\\
+Also gibt es $\binom{n}{k} = \binom{10}{3} = \frac{10!}{3!(10-3)!} = 120$ Möglichkeiten.
+\vspace{8mm}
+
+\exercise
+Vor ihnen liegt eine Tastatur mit den Tasten A,B,C,D,E. Sie müssen 9 mal auf irgendeine der Tasten tippen.
+Wieviele Möglichkeiten gibt es, wenn die Reihenfolge keine Rolle spielen soll?
+\vspace{4mm}
+
+\solution
+Es handelt sich um eine Kombination mit Wiederholung, also $\#Kom_{9}^{5}(\Omega, m. W.)$.\\
+Also gibt es $\binom{n+k-1}{k} = \binom{5+9-1}{5} = \binom{13}{9} = \frac{13!}{9!(13-9)!} = 715$ Möglichkeiten.
+\vspace{8mm}
+
+
+\exercise
+Sie haben den Auftrag, aus 9 verschiedenen Bewerbern 3 auszuwählen und diese 3 in der Rangreihe ihrer Eignung vorzuschlagen. Wieviele Möglichkeiten gibt es?
+\vspace{4mm}
+
+\solution
+Es handelt sich um eine Variation ohne Wiederholung, also $\#Var_{3}^{9}(\Omega, o. W.)$.\\
+Also gibt es $n_k = \frac{n!}{(n-k)!} = \frac{9!}{(9-3)!} = 504$ Möglichkeiten.
+\vspace{8mm}
+
+\exercise
+Auf einer CD sind 9 verschiedene Musikstücke. Sie tippen auf die Shuffle-Taste, welche alle Titel in zufälliger Reihenfolge anbietet. Wieviele mögliche Reihenfolgen gibt es insgesamt?
+\vspace{4mm}
+
+\solution
+Es handelt sich um eine Variation ohne Wiederholung, also $\#Var_{9}^{9}(\Omega, o. W.)$.\\
+Also gibt es $n_k = \frac{n!}{(n-k)!} = \frac{9!}{(9-9)!} = 9! = 362880$ Möglichkeiten.
+\vspace{8mm}
+
+\exercise
+Beim Fussballtotto (Elferwette) muss man die Ergebnisse aus 11 Fussballspielen vorhersagen. Wie das Ergebnis getippt werden muss, wird hier beispielhaft für ein Spiel erklärt.
+
+Bayern München vs. Borussia Dortmund\\
+1 = Bayern München gewinnt\\
+2 = Borussia Dortmund gewinnt\\
+0 = unentschieden.
+
+Wieviele mögliche unterschiedliche Tipergebnisse gibt es?
+\vspace{4mm}
+
+\solution
+Es handelt sich um eine Variation mit Wiederholung, also $\#Var_{11}^{3}(\Omega, m. W.)$.\\
+Also gibt es $n^k = 3^{11} = 177147$ Möglichkeiten.
+\vspace{8mm}
+
+\exercise
+Sie planen in einem Weinseminar die Qualität von 5 Weinen zu testen. Dabei soll für alle möglichen Weinpaare getestet werden, welcher von den 2 Weinen der bessere ist. Ein Weinkenner behauptet nun, es käme sehr darauf an, welcher Wein beim Paarvergleich zuerst gekostet wird. Sie legen deshalb fest, dass bei jedem möglichen Paarvergleich auch die Reihenfolge getestet werden muss, also z.B. einmal die Reihenfolge Wein A Wein B sowie auch die Reihenfolge Wein B Wein A.\\
+Wieviele Vergleiche sind notwendig, um alle Weine in dieser Art gegeneinander zu testen?
+\vspace{4mm}
+
+\solution
+Es handelt sich um eine Variation ohne Wiederholung, also $\#Var_{2}^{5}(\Omega, o. W.)$.\\
+Also gibt es $n_k = \frac{n!}{(n-k)!} = \frac{5!}{(5-2)!} = 5 \cdot 4 = 20$ Möglichkeiten.
+\vspace{8mm}
+
+\exercise
+10 Tennisspieler treten zu einem Turnier an. 2 Tennispieler bestreiten das Eröffnungsspiel.\\
+Wieviele Möglichkeiten gibt es, 2 aus 10 Tennisspieler für das Eröffnungspiel vorzuschlagen?
+\vspace{4mm}
+
+\solution
+Es handelt sich um eine Kombination ohne Wiederholung, also $\#Kom_{2}^{10}(\Omega, o. W.)$.\\
+Also gibt es $\binom{n}{k} = \binom{10}{2} = \frac{10!}{2!(10-2)!} = 45$ Möglichkeiten.
+\vspace{8mm}
+
+\exercise
+Eine Firma, die Glasperlen herstellt, will testen, welche Farben für Kinder besonders attraktiv sind. In 6 Glasschüsseln befinden sich jeweils 12 Glasperlen einer ganz bestimmten Farbe. In der Glasschüssel 1 sind z.b. 12 rote Perlen. Das Kind wird vor die Glasschüsseln gebracht und erhält die Anweisung: Du darfst dir 10 Perlen auswählen und mit nach Hause nehmen.\\
+Für das Experiment entscheidend ist die Frage, wie oft das Kind welche Farbe ausgewählt hat. Wieviele mögliche unterschiedliche Auswahlen gibt es?
+\vspace{4mm}
+
+\solution
+Es handelt sich um eine Kombination mit Wiederholung, also $\#Kom_{10}^{6}(\Omega, m. W.)$.\\
+Also gibt es $\binom{n+k-1}{k} = \binom{6+10-1}{10} = \binom{15}{10} = \frac{15!}{10!(15-10)!} = 3003$ Möglichkeiten.\\
+
+\textit{Hinweis:} Da das Kind höchstens 10 Perlen entnimmt, aber von jeder Farbe 12 Perlen vorhanden sind kann das Experiment als Kombination mit Zurücklegen der Perlen betrachtet werden, da immer genügend vorhanden sind.
+\vspace{8mm}
+
+\exercise
+Ein moderner Komponist mit Hang zur aleatorischen Computermusik erhält den Auftrag, zu Ehren des großen Komponisten Bach ein neues Werk zu komponieren. Die bestechende Konstruktionstechnik sieht wie folgt aus:\\
+Ein Takt bestehe aus 4 aufeinanderfolgenden Tönen. Die möglichen Töne sind "a b c h". Innerhalb eines Taktes kann ein bestimmter Ton beliebig oft vorkommen. Das Kompositionswerk besteht aus einer zufälligen Anordnung aller möglichen Takte und endet dann, wenn die Folge "b a c h" auftritt. Wieviele mögliche Takte gibt es, (d.h. wieviele Takte muss der Zuhörer im ungünstigsten Fall über sich ergehen lassen, bis das Werk beendet ist?)
+\vspace{4mm}
+
+\solution
+Es handelt sich um eine Variation mit Wiederholung, also $\#Var_{4}^{4}(\Omega, m. W.)$.\\
+Also gibt es $n^k = 4^{4} = 256$ Möglichkeiten.
+\vspace{8mm}
+
+
+\href{https://esb1jockisch.lima-city.de/math/math12/Kombinatorik/test.htm}{$\rightarrow$ Quelle}
+\end{document}
+
